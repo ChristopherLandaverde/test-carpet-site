@@ -1,0 +1,25 @@
+{
+  "name": "premium-carpets-test-site",
+  "version": "1.0.0",
+  "description": "Test website for GTM Consent Mode Inspector Chrome extension",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "netlify deploy --prod",
+    "test": "echo 'Tests will be Chrome extension compatibility'"
+  },
+  "keywords": [
+    "consent-mode",
+    "cookiebot", 
+    "gtm",
+    "chrome-extension",
+    "test-site"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "netlify-cli": "^17.10.1"
+  }
+}

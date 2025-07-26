@@ -1,0 +1,52 @@
+cat > .cursorrules << EOF
+# Premium Carpets Co - Cursor AI Rules
+
+## Project Context
+This is a test website for demonstrating Chrome extension consent mode detection.
+- Business: Premium carpet e-commerce store
+- Tech: HTML/CSS/JS with Cookiebot CMP and Google Consent Mode
+- Purpose: Testing GTM Consent Mode Inspector Chrome extension
+
+## Code Standards
+- Use semantic HTML5
+- Mobile-first responsive CSS
+- Vanilla JavaScript (ES6+)
+- Professional, realistic content
+- Realistic carpet business context
+
+## Key Requirements
+- Cookiebot CMP integration
+- Google Tag Manager with fake IDs
+- Real tracking scripts with dummy data
+- Consent Mode dataLayer events
+- Professional appearance for YouTube demos
+
+## File Structure
+- index.html (Homepage)
+- about.html (Company story)
+- products.html (Product catalog)
+- contact.html (Contact form)
+- custom.html (Design studio)
+- assets/css/styles.css (Main styles)
+- assets/js/main.js (Main JavaScript)
+
+## Consent Implementation
+- Use real Cookiebot script with test domain
+- Implement proper Google Consent Mode
+- Real tracking scripts (GA4, Facebook Pixel) with fake IDs
+- Test scenarios: deny all, accept all, partial consent
+
+## Content Guidelines
+- Family-owned carpet business since 1987
+- Premium handwoven carpets
+- Professional, error-free copy
+- Realistic pricing and products
+- Suitable for professional demos
+
+When asked to implement features, prioritize:
+1. Consent mode compatibility
+2. Extension testing scenarios
+3. Professional appearance
+4. Realistic business context
+5. Mobile responsiveness
+EOF
