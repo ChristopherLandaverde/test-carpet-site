@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="86451a7c-057c-4661-888d-4e607fc0e3b8" data-blockingmode="auto" data-domain-path="/" data-cookieconsent="statistics,preferences,marketing" type="text/javascript"></script>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/86451a7c-057c-4661-888d-4e607fc0e3b8/cd.js" type="text/javascript" async></script>
+    
+    <!-- Clear existing consent cookies for testing -->
+    <script>
+        // Clear any existing Cookiebot consent cookies for testing
+        document.cookie = "CookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "CookieConsentBulkTicket=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "CookieConsentBulkTicket-partner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        console.log('Cleared existing consent cookies for testing');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collections - Premium Carpets Co | Luxury Handcrafted Carpets</title>
+    <meta name="description" content="Explore our exclusive collections of handcrafted luxury carpets. From traditional Persian designs to modern contemporary styles, discover carpets that become family heirlooms.">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TEST123');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Consent Mode -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        // Default consent state
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "granted",
+            wait_for_update: 500,
+        });
+        
+        // Update consent when Cookiebot changes
+        window.addEventListener('CookiebotOnConsentReady', function (e) {
+            if (Cookiebot.consent.statistics) {
+                gtag("consent", "update", {
+                    analytics_storage: "granted"
+                });
+            }
+            if (Cookiebot.consent.marketing) {
+                gtag("consent", "update", {
+                    ad_storage: "granted"
+                });
+            }
+            if (Cookiebot.consent.preferences) {
+                gtag("consent", "update", {
+                    personalization_storage: "granted"
+                });
+            }
+            if (Cookiebot.consent.necessary) {
+                gtag("consent", "update", {
+                    functionality_storage: "granted"
+                });
+            }
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            send_page_view: false
+        });
+    </script>
+
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '123456789012345');
+        fbq('track', 'PageView');
+    </script>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST123"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">Premium Carpets Co</a>
+            </div>
+            <div class="nav-menu">
+                <a href="products.html">Products</a>
+                <a href="custom.html">Custom Design</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-contact">
+                <a href="tel:+1-555-123-4567">555-123-4567</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero products-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Our Collections</h1>
+            <p class="hero-subtitle">
+                Discover our exclusive handcrafted carpet collections, each piece a testament to three generations of artistry and tradition.
+            </p>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-placeholder">
+                <div class="image-overlay">
+                    <span>Luxury Carpet Collections</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="category-nav">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Collections</button>
+                <button class="category-tab" data-category="residential">Residential</button>
+                <button class="category-tab" data-category="commercial">Commercial</button>
+                <button class="category-tab" data-category="traditional">Traditional</button>
+                <button class="category-tab" data-category="modern">Modern</button>
+                <button class="category-tab" data-category="custom">Custom Design</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured-collection">
+        <div class="container">
+            <div class="collection-header">
+                <h2>Heritage Collection</h2>
+                <p>Our most prestigious line, featuring handwoven carpets that embody centuries of Persian craftsmanship with contemporary luxury.</p>
+            </div>
+            
+            <div class="featured-products">
+                <div class="featured-product">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Isfahan Royal</span>
+                        </div>
+                        <div class="product-badge">Best Seller</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Isfahan Royal</h3>
+                        <p class="product-description">A masterpiece of Persian design featuring intricate floral patterns in silk and wool, hand-knotted over 12 months.</p>
+                        <div class="product-specs">
+                            <span>Material: Silk & Wool</span>
+                            <span>Knot Density: 400 KPSI</span>
+                            <span>Origin: Isfahan, Iran</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$12,500</span>
+                            <span class="price-note">Starting price per square meter</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                            <a href="custom.html" class="btn btn-outline">Customize</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-product">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Tabriz Elegance</span>
+                        </div>
+                        <div class="product-badge">Limited Edition</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tabriz Elegance</h3>
+                        <p class="product-description">A sophisticated blend of traditional Tabriz patterns with modern color palettes, perfect for contemporary luxury homes.</p>
+                        <div class="product-specs">
+                            <span>Material: Pure Wool</span>
+                            <span>Knot Density: 350 KPSI</span>
+                            <span>Origin: Tabriz, Iran</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$9,800</span>
+                            <span class="price-note">Starting price per square meter</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                            <a href="custom.html" class="btn btn-outline">Customize</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="product-grid-section">
+        <div class="container">
+            <h2 class="section-title">All Collections</h2>
+            
+            <div class="product-grid" id="productGrid">
+                <!-- Residential Collection -->
+                <div class="product-card" data-category="residential">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Beverly Hills Classic</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Beverly Hills Classic</h3>
+                        <p>Timeless elegance for luxury residential spaces, featuring premium wool and natural dyes.</p>
+                        <div class="product-meta">
+                            <span class="material">Pure Wool</span>
+                            <span class="origin">Handcrafted in Beverly Hills</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$6,200</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="residential">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Malibu Coastal</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Malibu Coastal</h3>
+                        <p>Inspired by the Pacific coastline, featuring ocean-inspired colors and organic patterns.</p>
+                        <div class="product-meta">
+                            <span class="material">Silk & Wool Blend</span>
+                            <span class="origin">Custom Design</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$8,900</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <!-- Commercial Collection -->
+                <div class="product-card" data-category="commercial">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Executive Suite</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Executive Suite</h3>
+                        <p>Durable luxury for high-end commercial spaces, combining beauty with exceptional wear resistance.</p>
+                        <div class="product-meta">
+                            <span class="material">Commercial Grade Wool</span>
+                            <span class="origin">Premium Construction</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$4,500</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="commercial">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Hotel Grandeur</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Hotel Grandeur</h3>
+                        <p>Opulent designs for luxury hotels and hospitality spaces, featuring intricate patterns and premium materials.</p>
+                        <div class="product-meta">
+                            <span class="material">Silk & Wool</span>
+                            <span class="origin">Luxury Hospitality</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$7,800</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <!-- Traditional Collection -->
+                <div class="product-card" data-category="traditional">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Persian Heritage</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Persian Heritage</h3>
+                        <p>Authentic Persian designs passed down through generations, featuring traditional motifs and natural dyes.</p>
+                        <div class="product-meta">
+                            <span class="material">Pure Wool</span>
+                            <span class="origin">Traditional Persian</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$11,200</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="traditional">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Oriental Classic</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Oriental Classic</h3>
+                        <p>Timeless oriental patterns with rich colors and intricate details, perfect for traditional interiors.</p>
+                        <div class="product-meta">
+                            <span class="material">Silk & Wool</span>
+                            <span class="origin">Classic Oriental</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$9,500</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <!-- Modern Collection -->
+                <div class="product-card" data-category="modern">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Contemporary Minimal</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Contemporary Minimal</h3>
+                        <p>Clean lines and subtle textures for modern interiors, featuring geometric patterns and neutral tones.</p>
+                        <div class="product-meta">
+                            <span class="material">Premium Wool</span>
+                            <span class="origin">Modern Design</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$5,800</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="modern">
+                    <div class="product-image-placeholder">
+                        <div class="image-overlay">
+                            <span>Urban Sophisticate</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Urban Sophisticate</h3>
+                        <p>Bold geometric patterns and vibrant colors for contemporary urban spaces with artistic flair.</p>
+                        <div class="product-meta">
+                            <span class="material">Silk Blend</span>
+                            <span class="origin">Contemporary Art</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$7,200</span>
+                            <span class="unit">per sqm</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary">Inquire</a>
+                    </div>
+                </div>
+
+                <!-- Custom Design -->
+                <div class="product-card" data-category="custom">
+                    <div class="product-image-placeholder">
+                        <div class="image-overholder">
+                            <span>Custom Design Studio</span>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Custom Design Studio</h3>
+                        <p>Create your own unique carpet with our design team. From concept to completion, we bring your vision to life.</p>
+                        <div class="product-meta">
+                            <span class="material">Your Choice</span>
+                            <span class="origin">Bespoke Design</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">Custom Quote</span>
+                            <span class="unit">Based on design</span>
+                        </div>
+                        <a href="custom.html" class="btn btn-primary">Start Design</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials & Quality -->
+    <section class="materials-section">
+        <div class="container">
+            <h2 class="section-title">Materials & Craftsmanship</h2>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">🐑</div>
+                    <h3>Premium Wool</h3>
+                    <p>Sourced from the finest New Zealand and Tibetan sheep, our wool provides exceptional durability and natural beauty.</p>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">🕷️</div>
+                    <h3>Pure Silk</h3>
+                    <p>Hand-harvested silk from traditional silk farms, creating luxurious sheen and intricate detail in our finest pieces.</p>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">🌿</div>
+                    <h3>Natural Dyes</h3>
+                    <p>Traditional dyeing methods using plants, minerals, and insects, ensuring authentic colors that age beautifully.</p>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">👐</div>
+                    <h3>Hand-Knotting</h3>
+                    <p>Each carpet is hand-knotted by master artisans, with knot densities ranging from 200 to 500 KPSI for exceptional quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care & Maintenance -->
+    <section class="care-section">
+        <div class="container">
+            <div class="care-content">
+                <h2>Caring for Your Investment</h2>
+                <p class="care-intro">
+                    Our carpets are designed to last generations with proper care. Here's how to maintain their beauty and value.
+                </p>
+                
+                <div class="care-grid">
+                    <div class="care-item">
+                        <h3>Regular Maintenance</h3>
+                        <ul>
+                            <li>Vacuum weekly with a brushless attachment</li>
+                            <li>Rotate carpets every 6 months</li>
+                            <li>Use rug pads for protection</li>
+                            <li>Avoid direct sunlight exposure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="care-item">
+                        <h3>Professional Cleaning</h3>
+                        <ul>
+                            <li>Professional cleaning every 2-3 years</li>
+                            <li>Use certified carpet cleaning services</li>
+                            <li>Test cleaning products on hidden areas</li>
+                            <li>Allow proper drying time</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="care-item">
+                        <h3>Storage & Protection</h3>
+                        <ul>
+                            <li>Store in climate-controlled environments</li>
+                            <li>Roll, don't fold for storage</li>
+                            <li>Use acid-free paper for wrapping</li>
+                            <li>Protect from pests and moisture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="products-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Perfect Carpet?</h2>
+                <p>Schedule a consultation with our family to explore our collections and find the perfect carpet for your space.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                    <a href="custom.html" class="btn btn-secondary">Start Custom Design</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Premium Carpets Co</h3>
+                    <p>Handcrafted luxury since 1987</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <a href="products.html">Residential</a>
+                        <a href="products.html">Commercial</a>
+                        <a href="custom.html">Custom Design</a>
+                        <a href="about.html">Installation</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="products.html">Portfolio</a>
+                        <a href="custom.html">Design Studio</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <a href="tel:+1-555-123-4567">555-123-4567</a>
+                        <a href="mailto:info@premiumcarpets.com">info@premiumcarpets.com</a>
+                        <p>123 Luxury Lane<br>Beverly Hills, CA 90210</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Premium Carpets Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+</body>
+</html>
