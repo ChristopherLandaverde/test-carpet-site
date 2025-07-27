@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="86451a7c-057c-4661-888d-4e607fc0e3b8" data-blockingmode="auto" type="text/javascript"></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="86451a7c-057c-4661-888d-4e607fc0e3b8" data-blockingmode="auto" data-domain-path="/" data-cookieconsent="statistics,preferences,marketing" type="text/javascript"></script>
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/86451a7c-057c-4661-888d-4e607fc0e3b8/cd.js" type="text/javascript" async></script>
+    
+    <!-- Clear existing consent cookies for testing -->
+    <script>
+        // Clear any existing Cookiebot consent cookies for testing
+        document.cookie = "CookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "CookieConsentBulkTicket=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "CookieConsentBulkTicket-partner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        console.log('Cleared existing consent cookies for testing');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Carpets Co - Handcrafted Luxury Since 1987</title>
