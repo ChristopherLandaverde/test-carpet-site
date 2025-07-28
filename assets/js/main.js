@@ -35,6 +35,13 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'page_view', pageData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_page_view',
+                    'custom_parameter_page_type': pageData.custom_parameter_page_type,
+                    'custom_parameter_user_type': pageData.custom_parameter_user_type
+                });
             }
         },
         
@@ -46,6 +53,14 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'button_click', buttonData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_button_click',
+                    'custom_parameter_tracking': buttonData.custom_parameter_tracking,
+                    'custom_parameter_action': buttonData.custom_parameter_action,
+                    'custom_parameter_cta_type': buttonData.custom_parameter_cta_type
+                });
             }
         },
         
@@ -57,6 +72,13 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'form_submit', formData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_form_submit',
+                    'custom_parameter_form_type': formData.custom_parameter_form_type,
+                    'custom_parameter_form_tracking': formData.custom_parameter_form_tracking
+                });
             }
         },
         
@@ -68,6 +90,14 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'view_item', productData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_product_view',
+                    'custom_parameter_product_category': productData.custom_parameter_product_category,
+                    'custom_parameter_product': productData.custom_parameter_product,
+                    'custom_parameter_price': productData.custom_parameter_price
+                });
             }
         },
         
@@ -79,6 +109,13 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'add_to_cart', cartData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_add_to_cart',
+                    'custom_parameter_product': cartData.custom_parameter_product,
+                    'custom_parameter_price': cartData.custom_parameter_price
+                });
             }
         },
         
@@ -90,6 +127,12 @@ function initializeCustomHTMLTags() {
                 if (typeof fbq !== 'undefined') {
                     fbq('track', 'Lead', leadData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_lead_generation',
+                    'custom_parameter_lead_type': leadData.custom_parameter_lead_type || 'general'
+                });
             }
         },
         
@@ -101,6 +144,12 @@ function initializeCustomHTMLTags() {
                 if (typeof fbq !== 'undefined') {
                     fbq('track', 'Contact', contactData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_contact_intent',
+                    'custom_parameter_contact_type': contactData.custom_parameter_contact_type || 'general'
+                });
             }
         },
         
@@ -112,6 +161,13 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'design_interaction', designData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_design_interaction',
+                    'custom_parameter_design_type': designData.custom_parameter_design_type || 'general',
+                    'custom_parameter_action': designData.custom_parameter_action
+                });
             }
         },
         
@@ -123,6 +179,13 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'navigation_click', navData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_navigation',
+                    'custom_parameter_nav_type': navData.custom_parameter_navigation_type,
+                    'custom_parameter_page': navData.custom_parameter_page
+                });
             }
         },
         
@@ -134,6 +197,12 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'scroll_depth', scrollData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_scroll_depth',
+                    'custom_parameter_scroll_threshold': scrollData.custom_parameter_scroll_depth
+                });
             }
         },
         
@@ -145,6 +214,12 @@ function initializeCustomHTMLTags() {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'user_engagement', engagementData);
                 }
+                // Push to dataLayer for Chrome extension detection
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_user_engagement',
+                    'custom_parameter_engagement_type': engagementData.event_label
+                });
             }
         }
     };
