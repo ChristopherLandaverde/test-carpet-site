@@ -102,17 +102,17 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="index.html">Premium Carpets Co</a>
+                <a href="index.html" data-tracking="nav_brand" data-page="home">Premium Carpets Co</a>
             </div>
             <div class="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="products.html">Products</a>
-                <a href="custom.html" class="active">Custom Design</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" data-tracking="nav_menu" data-page="home" data-category="navigation">Home</a>
+                <a href="about.html" data-tracking="nav_menu" data-page="about" data-category="navigation">About</a>
+                <a href="products.html" data-tracking="nav_menu" data-page="products" data-category="navigation">Products</a>
+                <a href="custom.html" class="active" data-tracking="nav_menu" data-page="custom_design" data-category="navigation">Custom Design</a>
+                <a href="contact.html" data-tracking="nav_menu" data-page="contact" data-category="navigation">Contact</a>
             </div>
             <div class="nav-contact">
-                <a href="tel:+1-555-123-4567">555-123-4567</a>
+                <a href="tel:+1-555-123-4567" data-tracking="nav_contact" data-contact-type="phone" data-phone="555-123-4567">555-123-4567</a>
             </div>
         </div>
     </nav>
@@ -139,11 +139,11 @@
                         <div class="size-calculator">
                             <div class="input-group">
                                 <label for="roomWidth">Width (ft)</label>
-                                <input type="number" id="roomWidth" min="1" max="50" value="12">
+                                <input type="number" id="roomWidth" min="1" max="50" value="12" data-tracking="room_dimension" data-dimension="width" data-unit="feet">
                             </div>
                             <div class="input-group">
                                 <label for="roomLength">Length (ft)</label>
-                                <input type="number" id="roomLength" min="1" max="50" value="15">
+                                <input type="number" id="roomLength" min="1" max="50" value="15" data-tracking="room_dimension" data-dimension="length" data-unit="feet">
                             </div>
                             <div class="size-result">
                                 <strong>Total Area: <span id="totalArea">180</span> sq ft</strong>
@@ -157,29 +157,29 @@
                         <h3>Carpet Style</h3>
                         <div class="style-selector">
                             <label class="style-option">
-                                <input type="radio" name="style" value="traditional" checked>
-                                <span class="style-card">
+                                <input type="radio" name="style" value="traditional" checked data-tracking="style_selection" data-style="traditional">
+                                <span class="style-card" data-tracking="style_card" data-style="traditional">
                                     <div class="style-preview traditional"></div>
                                     <span>Traditional</span>
                                 </span>
                             </label>
                             <label class="style-option">
-                                <input type="radio" name="style" value="modern">
-                                <span class="style-card">
+                                <input type="radio" name="style" value="modern" data-tracking="style_selection" data-style="modern">
+                                <span class="style-card" data-tracking="style_card" data-style="modern">
                                     <div class="style-preview modern"></div>
                                     <span>Modern</span>
                                 </span>
                             </label>
                             <label class="style-option">
-                                <input type="radio" name="style" value="oriental">
-                                <span class="style-card">
+                                <input type="radio" name="style" value="oriental" data-tracking="style_selection" data-style="oriental">
+                                <span class="style-card" data-tracking="style_card" data-style="oriental">
                                     <div class="style-preview oriental"></div>
                                     <span>Oriental</span>
                                 </span>
                             </label>
                             <label class="style-option">
-                                <input type="radio" name="style" value="contemporary">
-                                <span class="style-card">
+                                <input type="radio" name="style" value="contemporary" data-tracking="style_selection" data-style="contemporary">
+                                <span class="style-card" data-tracking="style_card" data-style="contemporary">
                                     <div class="style-preview contemporary"></div>
                                     <span>Contemporary</span>
                                 </span>
@@ -191,18 +191,18 @@
                     <div class="control-group">
                         <h3>Color Palette</h3>
                         <div class="color-picker">
-                            <div class="color-option" data-color="#8B4513" style="background-color: #8B4513;"></div>
-                            <div class="color-option" data-color="#D2691E" style="background-color: #D2691E;"></div>
-                            <div class="color-option" data-color="#F4A460" style="background-color: #F4A460;"></div>
-                            <div class="color-option" data-color="#DEB887" style="background-color: #DEB887;"></div>
-                            <div class="color-option" data-color="#F5DEB3" style="background-color: #F5DEB3;"></div>
-                            <div class="color-option" data-color="#8FBC8F" style="background-color: #8FBC8F;"></div>
-                            <div class="color-option" data-color="#4682B4" style="background-color: #4682B4;"></div>
-                            <div class="color-option" data-color="#9370DB" style="background-color: #9370DB;"></div>
-                            <div class="color-option" data-color="#DC143C" style="background-color: #DC143C;"></div>
-                            <div class="color-option" data-color="#2F4F4F" style="background-color: #2F4F4F;"></div>
-                            <div class="color-option" data-color="#FFFFFF" style="background-color: #FFFFFF; border: 1px solid #ddd;"></div>
-                            <div class="color-option" data-color="#000000" style="background-color: #000000;"></div>
+                            <div class="color-option" data-color="#8B4513" style="background-color: #8B4513;" data-tracking="color_selection" data-color-hex="#8B4513" data-color-name="saddle_brown"></div>
+                            <div class="color-option" data-color="#D2691E" style="background-color: #D2691E;" data-tracking="color_selection" data-color-hex="#D2691E" data-color-name="chocolate"></div>
+                            <div class="color-option" data-color="#F4A460" style="background-color: #F4A460;" data-tracking="color_selection" data-color-hex="#F4A460" data-color-name="sandy_brown"></div>
+                            <div class="color-option" data-color="#DEB887" style="background-color: #DEB887;" data-tracking="color_selection" data-color-hex="#DEB887" data-color-name="burlywood"></div>
+                            <div class="color-option" data-color="#F5DEB3" style="background-color: #F5DEB3;" data-tracking="color_selection" data-color-hex="#F5DEB3" data-color-name="wheat"></div>
+                            <div class="color-option" data-color="#8FBC8F" style="background-color: #8FBC8F;" data-tracking="color_selection" data-color-hex="#8FBC8F" data-color-name="dark_sea_green"></div>
+                            <div class="color-option" data-color="#4682B4" style="background-color: #4682B4;" data-tracking="color_selection" data-color-hex="#4682B4" data-color-name="steel_blue"></div>
+                            <div class="color-option" data-color="#9370DB" style="background-color: #9370DB;" data-tracking="color_selection" data-color-hex="#9370DB" data-color-name="medium_purple"></div>
+                            <div class="color-option" data-color="#DC143C" style="background-color: #DC143C;" data-tracking="color_selection" data-color-hex="#DC143C" data-color-name="crimson"></div>
+                            <div class="color-option" data-color="#2F4F4F" style="background-color: #2F4F4F;" data-tracking="color_selection" data-color-hex="#2F4F4F" data-color-name="dark_slate_gray"></div>
+                            <div class="color-option" data-color="#FFFFFF" style="background-color: #FFFFFF; border: 1px solid #ddd;" data-tracking="color_selection" data-color-hex="#FFFFFF" data-color-name="white"></div>
+                            <div class="color-option" data-color="#000000" style="background-color: #000000;" data-tracking="color_selection" data-color-hex="#000000" data-color-name="black"></div>
                         </div>
                     </div>
 
@@ -211,24 +211,24 @@
                         <h3>Material</h3>
                         <div class="material-selector">
                             <label class="material-option">
-                                <input type="radio" name="material" value="premium-wool" checked>
-                                <span class="material-card">
+                                <input type="radio" name="material" value="premium-wool" checked data-tracking="material_selection" data-material="premium_wool">
+                                <span class="material-card" data-tracking="material_card" data-material="premium_wool">
                                     <h4>Premium Wool</h4>
                                     <p>Luxurious, durable, natural</p>
                                     <span class="price">$30/sq ft</span>
                                 </span>
                             </label>
                             <label class="material-option">
-                                <input type="radio" name="material" value="pure-silk">
-                                <span class="material-card">
+                                <input type="radio" name="material" value="pure-silk" data-tracking="material_selection" data-material="pure_silk">
+                                <span class="material-card" data-tracking="material_card" data-material="pure_silk">
                                     <h4>Pure Silk</h4>
                                     <p>Ultra-soft, elegant finish</p>
                                     <span class="price">$85/sq ft</span>
                                 </span>
                             </label>
                             <label class="material-option">
-                                <input type="radio" name="material" value="silk-wool-blend">
-                                <span class="material-card">
+                                <input type="radio" name="material" value="silk-wool-blend" data-tracking="material_selection" data-material="silk_wool_blend">
+                                <span class="material-card" data-tracking="material_card" data-material="silk_wool_blend">
                                     <h4>Silk & Wool Blend</h4>
                                     <p>Best of both worlds</p>
                                     <span class="price">$55/sq ft</span>
@@ -239,19 +239,19 @@
 
                     <!-- Action Buttons -->
                     <div class="action-buttons">
-                        <button class="btn btn-primary" onclick="saveDesign()">
+                        <button class="btn btn-primary" onclick="saveDesign()" data-tracking="action_button" data-action="save_design">
                             <span class="btn-text">Save Design</span>
                             <span class="btn-loading" style="display: none;">Saving...</span>
                         </button>
-                        <button class="btn btn-secondary" onclick="showRecommendations()">
+                        <button class="btn btn-secondary" onclick="showRecommendations()" data-tracking="action_button" data-action="get_recommendations">
                             <span class="btn-text">Get Recommendations</span>
                             <span class="btn-loading" style="display: none;">Analyzing...</span>
                         </button>
-                        <button class="btn btn-secondary" onclick="shareDesign()">
+                        <button class="btn btn-secondary" onclick="shareDesign()" data-tracking="action_button" data-action="share_design">
                             <span class="btn-text">Share Design</span>
                             <span class="btn-loading" style="display: none;">Sharing...</span>
                         </button>
-                        <button class="btn btn-secondary" onclick="show3DVisualization()">
+                        <button class="btn btn-secondary" onclick="show3DVisualization()" data-tracking="action_button" data-action="3d_preview">
                             <span class="btn-text">3D Preview</span>
                             <span class="btn-loading" style="display: none;">Loading...</span>
                         </button>
@@ -262,17 +262,17 @@
                 <div class="design-preview">
                     <h3>Your Carpet Design</h3>
                     <div class="carpet-preview">
-                        <div id="carpetVisualization" class="carpet-visualization">
+                        <div id="carpetVisualization" class="carpet-visualization" data-tracking="design_preview">
                             <!-- Carpet preview will be generated here -->
                         </div>
                         <div class="design-specs">
                             <h4>Specifications</h4>
                             <ul>
-                                <li><strong>Size:</strong> <span id="specSize">12' × 15'</span></li>
-                                <li><strong>Style:</strong> <span id="specStyle">Traditional</span></li>
-                                <li><strong>Color:</strong> <span id="specColor">Saddle Brown</span></li>
-                                <li><strong>Material:</strong> <span id="specMaterial">Premium Wool</span></li>
-                                <li><strong>Total Cost:</strong> <span id="specCost">$5,400</span></li>
+                                <li><strong>Size:</strong> <span id="specSize" data-tracking="design_spec" data-spec="size">12' × 15'</span></li>
+                                <li><strong>Style:</strong> <span id="specStyle" data-tracking="design_spec" data-spec="style">Traditional</span></li>
+                                <li><strong>Color:</strong> <span id="specColor" data-tracking="design_spec" data-spec="color">Saddle Brown</span></li>
+                                <li><strong>Material:</strong> <span id="specMaterial" data-tracking="design_spec" data-spec="material">Premium Wool</span></li>
+                                <li><strong>Total Cost:</strong> <span id="specCost" data-tracking="design_spec" data-spec="cost">$5,400</span></li>
                             </ul>
                         </div>
                     </div>
@@ -282,50 +282,42 @@
     </section>
 
     <!-- Consent Error Messages Panel -->
-    <div id="consentErrorPanel" class="consent-error-panel" style="display: none;">
+    <div id="consentErrorPanel" class="consent-error-panel" style="display: none;" data-tracking="consent_error_panel">
         <div class="error-content">
             <h3>Consent Required</h3>
             <p id="consentErrorMessage">This feature requires specific consent permissions.</p>
-            <button onclick="closeConsentError()" class="btn btn-primary">Got it</button>
+            <button onclick="closeConsentError()" class="btn btn-primary" data-tracking="consent_error_action" data-action="close_error">Got it</button>
         </div>
     </div>
 
     <!-- Recommendations Panel -->
-    <div id="recommendationsPanel" class="recommendations-panel" style="display: none;">
+    <div id="recommendationsPanel" class="recommendations-panel" style="display: none;" data-tracking="recommendations_panel">
         <div class="panel-content">
             <h3>Personalized Recommendations</h3>
-            <div id="recommendationsContent">
+            <div id="recommendationsContent" data-tracking="recommendations_content">
                 <!-- Recommendations will be populated here -->
             </div>
-            <button onclick="closeRecommendations()" class="btn btn-primary">Close</button>
+            <button onclick="closeRecommendations()" class="btn btn-primary" data-tracking="recommendations_action" data-action="close_recommendations">Close</button>
         </div>
     </div>
 
     <!-- 3D Visualization Panel -->
-    <div id="visualizationPanel" class="visualization-panel" style="display: none;">
+    <div id="visualizationPanel" class="visualization-panel" style="display: none;" data-tracking="3d_visualization_panel">
         <div class="panel-content">
             <h3>3D Room Visualization</h3>
-            <div class="3d-container">
-                <div id="3dRoom" class="3d-room">
-                    <!-- 3D visualization will be generated here -->
-                </div>
-                <div class="3d-controls">
-                    <button onclick="rotateView('left')" class="btn btn-small">← Rotate Left</button>
-                    <button onclick="rotateView('right')" class="btn btn-small">Rotate Right →</button>
-                    <button onclick="zoomView('in')" class="btn btn-small">Zoom In</button>
-                    <button onclick="zoomView('out')" class="btn btn-small">Zoom Out</button>
-                </div>
+            <div id="visualizationContent" data-tracking="3d_visualization_content">
+                <!-- 3D visualization will be populated here -->
             </div>
-            <button onclick="closeVisualization()" class="btn btn-primary">Close</button>
+            <button onclick="close3DVisualization()" class="btn btn-primary" data-tracking="3d_visualization_action" data-action="close_3d">Close</button>
         </div>
     </div>
 
-    <!-- Success Messages Panel -->
-    <div id="successPanel" class="success-panel" style="display: none;">
-        <div class="success-content">
-            <h3>Success!</h3>
-            <p id="successMessage">Action completed successfully.</p>
-            <button onclick="closeSuccess()" class="btn btn-primary">Continue</button>
+    <!-- Success Message Panel -->
+    <div id="successPanel" class="success-panel" style="display: none;" data-tracking="success_panel">
+        <div class="panel-content">
+            <h3>Design Saved Successfully!</h3>
+            <p>Your custom carpet design has been saved. You can access it anytime from your account.</p>
+            <button onclick="closeSuccess()" class="btn btn-primary" data-tracking="success_action" data-action="close_success">Continue Designing</button>
         </div>
     </div>
 

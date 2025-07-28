@@ -106,16 +106,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="index.html">Premium Carpets Co</a>
+                <a href="index.html" data-tracking="nav_brand" data-page="home">Premium Carpets Co</a>
             </div>
             <div class="nav-menu">
-                <a href="products.html">Products</a>
-                <a href="custom.html">Custom Design</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="products.html" data-tracking="nav_menu" data-page="products" data-category="navigation">Products</a>
+                <a href="custom.html" data-tracking="nav_menu" data-page="custom_design" data-category="navigation">Custom Design</a>
+                <a href="about.html" data-tracking="nav_menu" data-page="about" data-category="navigation">About</a>
+                <a href="contact.html" data-tracking="nav_menu" data-page="contact" data-category="navigation">Contact</a>
             </div>
             <div class="nav-contact">
-                <a href="tel:+1-555-123-4567">555-123-4567</a>
+                <a href="tel:+1-555-123-4567" data-tracking="nav_contact" data-contact-type="phone" data-phone="555-123-4567">555-123-4567</a>
             </div>
         </div>
     </nav>
@@ -129,7 +129,7 @@
             </p>
         </div>
         <div class="hero-visual">
-            <div class="hero-image-placeholder">
+            <div class="hero-image-placeholder" data-tracking="hero_image" data-image-type="collections_overview">
                 <div class="image-overlay">
                     <span>Luxury Carpet Collections</span>
                 </div>
@@ -141,12 +141,12 @@
     <section class="category-nav">
         <div class="container">
             <div class="category-tabs">
-                <button class="category-tab active" data-category="all">All Collections</button>
-                <button class="category-tab" data-category="residential">Residential</button>
-                <button class="category-tab" data-category="commercial">Commercial</button>
-                <button class="category-tab" data-category="traditional">Traditional</button>
-                <button class="category-tab" data-category="modern">Modern</button>
-                <button class="category-tab" data-category="custom">Custom Design</button>
+                <button class="category-tab active" data-category="all" data-tracking="category_filter" data-filter="all">All Collections</button>
+                <button class="category-tab" data-category="residential" data-tracking="category_filter" data-filter="residential">Residential</button>
+                <button class="category-tab" data-category="commercial" data-tracking="category_filter" data-filter="commercial">Commercial</button>
+                <button class="category-tab" data-category="traditional" data-tracking="category_filter" data-filter="traditional">Traditional</button>
+                <button class="category-tab" data-category="modern" data-tracking="category_filter" data-filter="modern">Modern</button>
+                <button class="category-tab" data-category="custom" data-tracking="category_filter" data-filter="custom">Custom Design</button>
             </div>
         </div>
     </section>
@@ -160,12 +160,12 @@
             </div>
             
             <div class="featured-products">
-                <div class="featured-product">
-                    <div class="product-image-placeholder">
+                <div class="featured-product" data-tracking="product_card" data-product="isfahan_royal" data-category="heritage" data-collection="heritage" data-price="12500" data-material="silk_wool" data-origin="isfahan_iran">
+                    <div class="product-image-placeholder" data-tracking="product_image" data-product="isfahan_royal">
                         <div class="image-overlay">
                             <span>Isfahan Royal</span>
                         </div>
-                        <div class="product-badge">Best Seller</div>
+                        <div class="product-badge" data-tracking="product_badge" data-badge-type="best_seller">Best Seller</div>
                     </div>
                     <div class="product-info">
                         <h3>Isfahan Royal</h3>
@@ -180,18 +180,18 @@
                             <span class="price-note">Starting price per square meter</span>
                         </div>
                         <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Request Quote</a>
-                            <a href="custom.html" class="btn btn-outline">Customize</a>
+                            <a href="contact.html" class="btn btn-primary" data-tracking="product_action" data-action="request_quote" data-product="isfahan_royal" data-price="12500">Request Quote</a>
+                            <a href="custom.html" class="btn btn-outline" data-tracking="product_action" data-action="customize" data-product="isfahan_royal">Customize</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="featured-product">
-                    <div class="product-image-placeholder">
+                <div class="featured-product" data-tracking="product_card" data-product="tabriz_elegance" data-category="heritage" data-collection="heritage" data-price="9800" data-material="pure_wool" data-origin="tabriz_iran">
+                    <div class="product-image-placeholder" data-tracking="product_image" data-product="tabriz_elegance">
                         <div class="image-overlay">
                             <span>Tabriz Elegance</span>
                         </div>
-                        <div class="product-badge">Limited Edition</div>
+                        <div class="product-badge" data-tracking="product_badge" data-badge-type="limited_edition">Limited Edition</div>
                     </div>
                     <div class="product-info">
                         <h3>Tabriz Elegance</h3>
@@ -206,8 +206,8 @@
                             <span class="price-note">Starting price per square meter</span>
                         </div>
                         <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Request Quote</a>
-                            <a href="custom.html" class="btn btn-outline">Customize</a>
+                            <a href="contact.html" class="btn btn-primary" data-tracking="product_action" data-action="request_quote" data-product="tabriz_elegance" data-price="9800">Request Quote</a>
+                            <a href="custom.html" class="btn btn-outline" data-tracking="product_action" data-action="customize" data-product="tabriz_elegance">Customize</a>
                         </div>
                     </div>
                 </div>

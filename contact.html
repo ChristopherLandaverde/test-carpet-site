@@ -106,16 +106,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="index.html">Premium Carpets Co</a>
+                <a href="index.html" data-tracking="nav_brand" data-page="home">Premium Carpets Co</a>
             </div>
             <div class="nav-menu">
-                <a href="products.html">Products</a>
-                <a href="custom.html">Custom Design</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="products.html" data-tracking="nav_menu" data-page="products" data-category="navigation">Products</a>
+                <a href="custom.html" data-tracking="nav_menu" data-page="custom_design" data-category="navigation">Custom Design</a>
+                <a href="about.html" data-tracking="nav_menu" data-page="about" data-category="navigation">About</a>
+                <a href="contact.html" data-tracking="nav_menu" data-page="contact" data-category="navigation">Contact</a>
             </div>
             <div class="nav-contact">
-                <a href="tel:+1-555-123-4567">555-123-4567</a>
+                <a href="tel:+1-555-123-4567" data-tracking="nav_contact" data-contact-type="phone" data-phone="555-123-4567">555-123-4567</a>
             </div>
         </div>
     </nav>
@@ -129,7 +129,7 @@
             </p>
         </div>
         <div class="hero-visual">
-            <div class="hero-image-placeholder">
+            <div class="hero-image-placeholder" data-tracking="hero_image" data-image-type="consultation">
                 <div class="image-overlay">
                     <span>Schedule Consultation</span>
                 </div>
@@ -147,56 +147,56 @@
                         Tell us about your project and we'll arrange a personalized consultation with our family. Whether you're looking for residential carpets, commercial solutions, or custom designs, we're here to help.
                     </p>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" data-tracking="contact_form" data-form-type="consultation">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
+                                <input type="text" id="firstName" name="firstName" required data-tracking="form_field" data-field="first_name" data-field-type="text">
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
+                                <input type="text" id="lastName" name="lastName" required data-tracking="form_field" data-field="last_name" data-field-type="text">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" required data-tracking="form_field" data-field="email" data-field-type="email">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
+                                <input type="tel" id="phone" name="phone" data-tracking="form_field" data-field="phone" data-field-type="tel">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="projectType">Project Type *</label>
-                            <select id="projectType" name="projectType" required>
+                            <select id="projectType" name="projectType" required data-tracking="form_field" data-field="project_type" data-field-type="select">
                                 <option value="">Select your project type</option>
-                                <option value="residential">Residential Carpet</option>
-                                <option value="commercial">Commercial Carpet</option>
-                                <option value="custom-design">Custom Design</option>
-                                <option value="consultation">General Consultation</option>
-                                <option value="quote">Request Quote</option>
+                                <option value="residential" data-tracking="form_option" data-option="residential">Residential Carpet</option>
+                                <option value="commercial" data-tracking="form_option" data-option="commercial">Commercial Carpet</option>
+                                <option value="custom-design" data-tracking="form_option" data-option="custom_design">Custom Design</option>
+                                <option value="consultation" data-tracking="form_option" data-option="consultation">General Consultation</option>
+                                <option value="quote" data-tracking="form_option" data-option="quote">Request Quote</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="budget">Budget Range</label>
-                            <select id="budget" name="budget">
+                            <select id="budget" name="budget" data-tracking="form_field" data-field="budget" data-field-type="select">
                                 <option value="">Select budget range</option>
-                                <option value="under-5k">Under $5,000</option>
-                                <option value="5k-15k">$5,000 - $15,000</option>
-                                <option value="15k-50k">$15,000 - $50,000</option>
-                                <option value="50k-plus">$50,000+</option>
-                                <option value="discuss">Let's discuss</option>
+                                <option value="under-5k" data-tracking="form_option" data-option="under_5k">Under $5,000</option>
+                                <option value="5k-15k" data-tracking="form_option" data-option="5k_15k">$5,000 - $15,000</option>
+                                <option value="15k-50k" data-tracking="form_option" data-option="15k_50k">$15,000 - $50,000</option>
+                                <option value="50k-plus" data-tracking="form_option" data-option="50k_plus">$50,000+</option>
+                                <option value="discuss" data-tracking="form_option" data-option="discuss">Let's discuss</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline">
+                            <select id="timeline" name="timeline" data-tracking="form_field" data-field="timeline" data-field-type="select">
                                 <option value="">Select timeline</option>
                                 <option value="asap">As soon as possible</option>
                                 <option value="1-3-months">1-3 months</option>
@@ -208,12 +208,12 @@
                         
                         <div class="form-group">
                             <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, room dimensions, style preferences, or any specific requirements..." required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, room dimensions, style preferences, or any specific requirements..." required data-tracking="form_field" data-field="message" data-field-type="textarea"></textarea>
                         </div>
                         
                         <div class="form-group checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="showroom" name="showroom">
+                                <input type="checkbox" id="showroom" name="showroom" data-tracking="form_field" data-field="showroom" data-field-type="checkbox">
                                 <span class="checkmark"></span>
                                 I'd like to visit your Beverly Hills showroom
                             </label>
@@ -221,7 +221,7 @@
                         
                         <div class="form-group checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="inHome" name="inHome">
+                                <input type="checkbox" id="inHome" name="inHome" data-tracking="form_field" data-field="in_home_consultation" data-field-type="checkbox">
                                 <span class="checkmark"></span>
                                 I'd like an in-home consultation
                             </label>
@@ -229,13 +229,13 @@
                         
                         <div class="form-group checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <input type="checkbox" id="newsletter" name="newsletter" data-tracking="form_field" data-field="newsletter" data-field-type="checkbox">
                                 <span class="checkmark"></span>
                                 Subscribe to our newsletter for design inspiration and updates
                             </label>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary submit-btn">
+                        <button type="submit" class="btn btn-primary submit-btn" data-tracking="form_submit_button">
                             <span class="btn-text">Send Message</span>
                             <span class="btn-loading" style="display: none;">Sending...</span>
                         </button>
@@ -252,7 +252,7 @@
                                 <div class="method-icon">📞</div>
                                 <div class="method-content">
                                     <h4>Call Us</h4>
-                                    <p><a href="tel:+1-555-123-4567">555-123-4567</a></p>
+                                    <p><a href="tel:+1-555-123-4567" data-tracking="contact_method" data-method-type="phone" data-phone="555-123-4567">555-123-4567</a></p>
                                     <span class="method-note">Mon-Fri: 9AM-6PM PST</span>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@
                                 <div class="method-icon">✉️</div>
                                 <div class="method-content">
                                     <h4>Email Us</h4>
-                                    <p><a href="mailto:info@premiumcarpets.com">info@premiumcarpets.com</a></p>
+                                    <p><a href="mailto:info@premiumcarpets.com" data-tracking="contact_method" data-method-type="email">info@premiumcarpets.com</a></p>
                                     <span class="method-note">We respond within 24 hours</span>
                                 </div>
                             </div>
@@ -312,7 +312,7 @@
                             <h3>Main Showroom</h3>
                             <p>123 Luxury Lane<br>Beverly Hills, CA 90210</p>
                             <p><strong>Hours:</strong> Mon-Fri 9AM-6PM<br>Saturday 10AM-4PM</p>
-                            <a href="tel:+1-555-123-4567" class="btn btn-outline">Call to Schedule</a>
+                            <a href="tel:+1-555-123-4567" data-tracking="showroom_call_to_action" data-showroom-type="main" class="btn btn-outline">Call to Schedule</a>
                         </div>
                     </div>
                     
@@ -326,7 +326,7 @@
                             <h3>Design Studio</h3>
                             <p>456 Artisan Way<br>Los Angeles, CA 90025</p>
                             <p><strong>Hours:</strong> By appointment only</p>
-                            <a href="tel:+1-555-123-4568" class="btn btn-outline">Schedule Visit</a>
+                            <a href="tel:+1-555-123-4568" data-tracking="showroom_call_to_action" data-showroom-type="design_studio" class="btn btn-outline">Schedule Visit</a>
                         </div>
                     </div>
                 </div>

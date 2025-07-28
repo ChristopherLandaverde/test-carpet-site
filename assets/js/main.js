@@ -286,12 +286,19 @@ function trackFormInteractions() {
     // Track form field interactions
     document.addEventListener('focusin', function(e) {
         if (e.target.matches('input, textarea, select')) {
+            const tracking = e.target.dataset.tracking;
+            const field = e.target.dataset.field;
+            const fieldType = e.target.dataset.fieldType;
+            
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'form_interaction', {
                     'event_category': 'forms',
                     'event_label': 'field_focus',
                     'custom_parameter_field_name': e.target.name || e.target.id,
-                    'custom_parameter_field_type': e.target.type
+                    'custom_parameter_field_type': e.target.type,
+                    'custom_parameter_tracking': tracking,
+                    'custom_parameter_field': field,
+                    'custom_parameter_field_type_detail': fieldType
                 });
             }
         }
@@ -299,12 +306,17 @@ function trackFormInteractions() {
     
     // Track form submissions
     document.addEventListener('submit', function(e) {
+        const formTracking = e.target.dataset.tracking;
+        const formType = e.target.dataset.formType;
+        
         if (typeof gtag !== 'undefined') {
             gtag('event', 'form_submit', {
                 'event_category': 'forms',
                 'event_label': 'form_submitted',
                 'custom_parameter_form_id': e.target.id,
-                'custom_parameter_form_action': e.target.action
+                'custom_parameter_form_action': e.target.action,
+                'custom_parameter_form_tracking': formTracking,
+                'custom_parameter_form_type': formType
             });
         }
         
@@ -312,8 +324,33 @@ function trackFormInteractions() {
         if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
             fbq('track', 'Lead', {
                 content_name: e.target.id || 'Form Submission',
-                content_category: 'Forms'
+                content_category: 'Forms',
+                content_type: formType
             });
+        }
+    });
+    
+    // Track form option selections
+    document.addEventListener('change', function(e) {
+        if (e.target.matches('select, input[type="radio"], input[type="checkbox"]')) {
+            const tracking = e.target.dataset.tracking;
+            const field = e.target.dataset.field;
+            const fieldType = e.target.dataset.fieldType;
+            const option = e.target.dataset.option;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_interaction', {
+                    'event_category': 'forms',
+                    'event_label': 'option_selected',
+                    'custom_parameter_field_name': e.target.name || e.target.id,
+                    'custom_parameter_field_type': e.target.type,
+                    'custom_parameter_selected_value': e.target.value,
+                    'custom_parameter_tracking': tracking,
+                    'custom_parameter_field': field,
+                    'custom_parameter_field_type_detail': fieldType,
+                    'custom_parameter_option': option
+                });
+            }
         }
     });
 }
@@ -322,12 +359,19 @@ function trackNavigationInteractions() {
     // Track navigation menu clicks
     document.addEventListener('click', function(e) {
         if (e.target.matches('.nav-menu a, .navbar a')) {
+            const tracking = e.target.dataset.tracking;
+            const page = e.target.dataset.page;
+            const category = e.target.dataset.category;
+            
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'navigation_click', {
                     'event_category': 'navigation',
                     'event_label': e.target.textContent.trim(),
                     'custom_parameter_destination': e.target.href,
-                    'custom_parameter_navigation_type': 'main_menu'
+                    'custom_parameter_navigation_type': 'main_menu',
+                    'custom_parameter_tracking': tracking,
+                    'custom_parameter_page': page,
+                    'custom_parameter_category': category
                 });
             }
         }
@@ -346,6 +390,41 @@ function trackNavigationInteractions() {
             }
         }
     });
+    
+    // Track brand logo clicks
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="nav_brand"]')) {
+            const page = e.target.dataset.page;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'navigation_click', {
+                    'event_category': 'navigation',
+                    'event_label': 'brand_logo',
+                    'custom_parameter_destination': e.target.href,
+                    'custom_parameter_navigation_type': 'brand',
+                    'custom_parameter_page': page
+                });
+            }
+        }
+    });
+    
+    // Track contact phone clicks
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="nav_contact"]')) {
+            const contactType = e.target.dataset.contactType;
+            const phone = e.target.dataset.phone;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'contact_click', {
+                    'event_category': 'contact',
+                    'event_label': 'phone_contact',
+                    'custom_parameter_contact_type': contactType,
+                    'custom_parameter_phone': phone,
+                    'custom_parameter_location': 'navigation'
+                });
+            }
+        }
+    });
 }
 
 function trackButtonInteractions() {
@@ -353,13 +432,21 @@ function trackButtonInteractions() {
         if (e.target.matches('.btn, button')) {
             const buttonText = e.target.textContent.trim();
             const buttonClass = e.target.className;
+            const tracking = e.target.dataset.tracking;
+            const action = e.target.dataset.action;
+            const destination = e.target.dataset.destination;
+            const ctaType = e.target.dataset.ctaType;
             
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'button_click', {
                     'event_category': 'engagement',
                     'event_label': buttonText,
                     'custom_parameter_button_type': buttonClass.includes('btn-primary') ? 'primary' : 'secondary',
-                    'custom_parameter_button_class': buttonClass
+                    'custom_parameter_button_class': buttonClass,
+                    'custom_parameter_tracking': tracking,
+                    'custom_parameter_action': action,
+                    'custom_parameter_destination': destination,
+                    'custom_parameter_cta_type': ctaType
                 });
             }
             
@@ -378,13 +465,20 @@ function trackButtonInteractions() {
 function trackLinkInteractions() {
     document.addEventListener('click', function(e) {
         if (e.target.matches('a[href^="http"], a[href^="mailto:"], a[href^="tel:"]')) {
+            const tracking = e.target.dataset.tracking;
+            const contactType = e.target.dataset.contactType;
+            const phone = e.target.dataset.phone;
+            
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'link_click', {
                     'event_category': 'engagement',
                     'event_label': e.target.textContent.trim(),
                     'custom_parameter_link_url': e.target.href,
                     'custom_parameter_link_type': e.target.href.startsWith('mailto:') ? 'email' : 
-                                                 e.target.href.startsWith('tel:') ? 'phone' : 'external'
+                                                 e.target.href.startsWith('tel:') ? 'phone' : 'external',
+                    'custom_parameter_tracking': tracking,
+                    'custom_parameter_contact_type': contactType,
+                    'custom_parameter_phone': phone
                 });
             }
         }
@@ -450,16 +544,30 @@ function trackSocialInteractions() {
 function trackEcommerceEvents() {
     // Track product views
     document.addEventListener('click', function(e) {
-        if (e.target.closest('.product-card, .product-item')) {
-            const productCard = e.target.closest('.product-card, .product-item');
+        if (e.target.closest('.product-card, .product-item, .featured-product')) {
+            const productCard = e.target.closest('.product-card, .product-item, .featured-product');
             const productName = productCard.querySelector('h3, .product-name')?.textContent || 'Unknown Product';
+            const tracking = productCard.dataset.tracking;
+            const product = productCard.dataset.product;
+            const category = productCard.dataset.category;
+            const collection = productCard.dataset.collection;
+            const price = productCard.dataset.price;
+            const material = productCard.dataset.material;
+            const origin = productCard.dataset.origin;
             
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'view_item', {
                     'event_category': 'ecommerce',
                     'event_label': 'product_viewed',
                     'custom_parameter_product_name': productName,
-                    'custom_parameter_product_category': 'carpets'
+                    'custom_parameter_product_category': 'carpets',
+                    'custom_parameter_tracking': tracking,
+                    'custom_parameter_product': product,
+                    'custom_parameter_category': category,
+                    'custom_parameter_collection': collection,
+                    'custom_parameter_price': price,
+                    'custom_parameter_material': material,
+                    'custom_parameter_origin': origin
                 });
             }
         }
@@ -468,11 +576,16 @@ function trackEcommerceEvents() {
     // Track add to cart (simulated)
     document.addEventListener('click', function(e) {
         if (e.target.matches('.add-to-cart, .cart-button')) {
+            const product = e.target.dataset.product;
+            const price = e.target.dataset.price;
+            
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'add_to_cart', {
                     'event_category': 'ecommerce',
                     'event_label': 'item_added_to_cart',
-                    'custom_parameter_product_name': e.target.dataset.product || 'Unknown Product'
+                    'custom_parameter_product_name': e.target.dataset.product || 'Unknown Product',
+                    'custom_parameter_product': product,
+                    'custom_parameter_price': price
                 });
             }
             
@@ -480,7 +593,42 @@ function trackEcommerceEvents() {
             if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
                 fbq('track', 'AddToCart', {
                     content_name: e.target.dataset.product || 'Unknown Product',
-                    content_category: 'Carpets'
+                    content_category: 'Carpets',
+                    value: price
+                });
+            }
+        }
+    });
+    
+    // Track product actions (quote request, customize)
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="product_action"]')) {
+            const action = e.target.dataset.action;
+            const product = e.target.dataset.product;
+            const price = e.target.dataset.price;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'product_action', {
+                    'event_category': 'ecommerce',
+                    'event_label': action,
+                    'custom_parameter_action': action,
+                    'custom_parameter_product': product,
+                    'custom_parameter_price': price
+                });
+            }
+        }
+    });
+    
+    // Track product badges
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="product_badge"]')) {
+            const badgeType = e.target.dataset.badgeType;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'product_badge_click', {
+                    'event_category': 'ecommerce',
+                    'event_label': 'badge_clicked',
+                    'custom_parameter_badge_type': badgeType
                 });
             }
         }
@@ -492,11 +640,55 @@ function trackCustomEvents() {
     document.addEventListener('click', function(e) {
         if (e.target.closest('.design-controls')) {
             if (e.target.matches('.color-option')) {
-                trackDesignEvent('color_selected', e.target.dataset.color);
+                const colorHex = e.target.dataset.colorHex;
+                const colorName = e.target.dataset.colorName;
+                trackDesignEvent('color_selected', e.target.dataset.color, {
+                    color_hex: colorHex,
+                    color_name: colorName
+                });
             } else if (e.target.matches('input[name="style"]')) {
-                trackDesignEvent('style_selected', e.target.value);
+                const style = e.target.dataset.style;
+                trackDesignEvent('style_selected', e.target.value, {
+                    style: style
+                });
             } else if (e.target.matches('input[name="material"]')) {
-                trackDesignEvent('material_selected', e.target.value);
+                const material = e.target.dataset.material;
+                trackDesignEvent('material_selected', e.target.value, {
+                    material: material
+                });
+            }
+        }
+    });
+    
+    // Track room dimension changes
+    document.addEventListener('input', function(e) {
+        if (e.target.matches('[data-tracking="room_dimension"]')) {
+            const dimension = e.target.dataset.dimension;
+            const unit = e.target.dataset.unit;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'design_interaction', {
+                    'event_category': 'custom_design',
+                    'event_label': 'room_dimension_changed',
+                    'custom_parameter_dimension': dimension,
+                    'custom_parameter_unit': unit,
+                    'custom_parameter_value': e.target.value
+                });
+            }
+        }
+    });
+    
+    // Track action buttons in design studio
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="action_button"]')) {
+            const action = e.target.dataset.action;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'design_action', {
+                    'event_category': 'custom_design',
+                    'event_label': action,
+                    'custom_parameter_action': action
+                });
             }
         }
     });
@@ -507,17 +699,76 @@ function trackCustomEvents() {
             trackConsultationRequest();
         }
     });
+    
+    // Track category filters
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="category_filter"]')) {
+            const filter = e.target.dataset.filter;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'category_filter', {
+                    'event_category': 'navigation',
+                    'event_label': 'filter_applied',
+                    'custom_parameter_filter': filter
+                });
+            }
+        }
+    });
+    
+    // Track offering cards
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('[data-tracking="offering_card"]')) {
+            const offeringCard = e.target.closest('[data-tracking="offering_card"]');
+            const offeringType = offeringCard.dataset.offeringType;
+            const category = offeringCard.dataset.category;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'offering_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'offering_viewed',
+                    'custom_parameter_offering_type': offeringType,
+                    'custom_parameter_category': category
+                });
+            }
+        }
+    });
+    
+    // Track featured project clicks
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-tracking="featured_project"]')) {
+            const project = e.target.dataset.project;
+            const destination = e.target.dataset.destination;
+            const ctaType = e.target.dataset.ctaType;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'project_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'project_viewed',
+                    'custom_parameter_project': project,
+                    'custom_parameter_destination': destination,
+                    'custom_parameter_cta_type': ctaType
+                });
+            }
+        }
+    });
 }
 
 // Helper Functions
-function trackDesignEvent(eventType, value) {
+function trackDesignEvent(eventType, value, additionalParams = {}) {
     if (typeof gtag !== 'undefined') {
-        gtag('event', 'design_interaction', {
+        const eventData = {
             'event_category': 'custom_design',
             'event_label': eventType,
             'custom_parameter_design_value': value,
             'custom_parameter_page': 'design_studio'
+        };
+        
+        // Add additional parameters
+        Object.keys(additionalParams).forEach(key => {
+            eventData[`custom_parameter_${key}`] = additionalParams[key];
         });
+        
+        gtag('event', 'design_interaction', eventData);
     }
 }
 
