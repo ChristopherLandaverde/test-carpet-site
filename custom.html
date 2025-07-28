@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Design Studio - Premium Carpets Co</title>
+    <meta name="description" content="Create your perfect custom carpet with our interactive design studio. Choose colors, materials, and visualize your dream carpet.">
+    
+    <!-- Cookiebot CMP -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="86451a7c-057c-4661-888d-4e607fc0e3b8" data-blockingmode="auto" data-domain-path="/" data-cookieconsent="statistics,preferences,marketing" type="text/javascript"></script>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/86451a7c-057c-4661-888d-4e607fc0e3b8/cd.js" type="text/javascript" async></script>
+
+    <!-- Clear existing consent cookies for testing -->
+    <script>
+        // Clear any existing Cookiebot consent cookies for testing
+        document.cookie = "CookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "CookieConsentBulkTicket=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "CookieConsentBulkTicket-partner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        console.log('Cleared existing consent cookies for testing');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TEST123');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Consent Mode -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Default consent state
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "granted",
+            wait_for_update: 500,
+        });
+
+        // Update consent when Cookiebot changes
+        window.addEventListener('CookiebotOnConsentReady', function (e) {
+            if (Cookiebot.consent.statistics) {
+                gtag("consent", "update", {
+                    analytics_storage: "granted"
+                });
+            }
+            if (Cookiebot.consent.marketing) {
+                gtag("consent", "update", {
+                    ad_storage: "granted"
+                });
+            }
+            if (Cookiebot.consent.preferences) {
+                gtag("consent", "update", {
+                    personalization_storage: "granted"
+                });
+            }
+            if (Cookiebot.consent.necessary) {
+                gtag("consent", "update", {
+                    functionality_storage: "granted"
+                });
+            }
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA-TEST123"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA-TEST123');
+    </script>
+
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'FB-TEST123');
+        fbq('track', 'PageView');
+    </script>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST123"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Premium Carpets Co</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="custom.html" class="active">Design Studio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="custom-hero">
+        <div class="hero-content">
+            <h1>Custom Design Studio</h1>
+            <p>Create your perfect carpet with our interactive design tools. Choose colors, materials, and visualize your dream carpet in real-time.</p>
+        </div>
+    </section>
+
+    <!-- Design Studio Section -->
+    <section class="design-studio">
+        <div class="container">
+            <div class="design-layout">
+                <!-- Design Controls -->
+                <div class="design-controls">
+                    <h2>Design Your Carpet</h2>
+                    
+                    <!-- Room Size Calculator -->
+                    <div class="control-group">
+                        <h3>Room Dimensions</h3>
+                        <div class="size-calculator">
+                            <div class="input-group">
+                                <label for="roomWidth">Width (ft)</label>
+                                <input type="number" id="roomWidth" min="1" max="50" value="12">
+                            </div>
+                            <div class="input-group">
+                                <label for="roomLength">Length (ft)</label>
+                                <input type="number" id="roomLength" min="1" max="50" value="15">
+                            </div>
+                            <div class="size-result">
+                                <strong>Total Area: <span id="totalArea">180</span> sq ft</strong>
+                                <small>Estimated Cost: $<span id="estimatedCost">5,400</span></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Style Selector -->
+                    <div class="control-group">
+                        <h3>Carpet Style</h3>
+                        <div class="style-selector">
+                            <label class="style-option">
+                                <input type="radio" name="style" value="traditional" checked>
+                                <span class="style-card">
+                                    <div class="style-preview traditional"></div>
+                                    <span>Traditional</span>
+                                </span>
+                            </label>
+                            <label class="style-option">
+                                <input type="radio" name="style" value="modern">
+                                <span class="style-card">
+                                    <div class="style-preview modern"></div>
+                                    <span>Modern</span>
+                                </span>
+                            </label>
+                            <label class="style-option">
+                                <input type="radio" name="style" value="oriental">
+                                <span class="style-card">
+                                    <div class="style-preview oriental"></div>
+                                    <span>Oriental</span>
+                                </span>
+                            </label>
+                            <label class="style-option">
+                                <input type="radio" name="style" value="contemporary">
+                                <span class="style-card">
+                                    <div class="style-preview contemporary"></div>
+                                    <span>Contemporary</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Color Picker -->
+                    <div class="control-group">
+                        <h3>Color Palette</h3>
+                        <div class="color-picker">
+                            <div class="color-option" data-color="#8B4513" style="background-color: #8B4513;"></div>
+                            <div class="color-option" data-color="#D2691E" style="background-color: #D2691E;"></div>
+                            <div class="color-option" data-color="#F4A460" style="background-color: #F4A460;"></div>
+                            <div class="color-option" data-color="#DEB887" style="background-color: #DEB887;"></div>
+                            <div class="color-option" data-color="#F5DEB3" style="background-color: #F5DEB3;"></div>
+                            <div class="color-option" data-color="#8FBC8F" style="background-color: #8FBC8F;"></div>
+                            <div class="color-option" data-color="#4682B4" style="background-color: #4682B4;"></div>
+                            <div class="color-option" data-color="#9370DB" style="background-color: #9370DB;"></div>
+                            <div class="color-option" data-color="#DC143C" style="background-color: #DC143C;"></div>
+                            <div class="color-option" data-color="#2F4F4F" style="background-color: #2F4F4F;"></div>
+                            <div class="color-option" data-color="#FFFFFF" style="background-color: #FFFFFF; border: 1px solid #ddd;"></div>
+                            <div class="color-option" data-color="#000000" style="background-color: #000000;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Material Selector -->
+                    <div class="control-group">
+                        <h3>Material</h3>
+                        <div class="material-selector">
+                            <label class="material-option">
+                                <input type="radio" name="material" value="premium-wool" checked>
+                                <span class="material-card">
+                                    <h4>Premium Wool</h4>
+                                    <p>Luxurious, durable, natural</p>
+                                    <span class="price">$30/sq ft</span>
+                                </span>
+                            </label>
+                            <label class="material-option">
+                                <input type="radio" name="material" value="pure-silk">
+                                <span class="material-card">
+                                    <h4>Pure Silk</h4>
+                                    <p>Ultra-soft, elegant finish</p>
+                                    <span class="price">$85/sq ft</span>
+                                </span>
+                            </label>
+                            <label class="material-option">
+                                <input type="radio" name="material" value="silk-wool-blend">
+                                <span class="material-card">
+                                    <h4>Silk & Wool Blend</h4>
+                                    <p>Best of both worlds</p>
+                                    <span class="price">$55/sq ft</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="saveDesign()">
+                            <span class="btn-text">Save Design</span>
+                            <span class="btn-loading" style="display: none;">Saving...</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="showRecommendations()">
+                            <span class="btn-text">Get Recommendations</span>
+                            <span class="btn-loading" style="display: none;">Analyzing...</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="shareDesign()">
+                            <span class="btn-text">Share Design</span>
+                            <span class="btn-loading" style="display: none;">Sharing...</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="show3DVisualization()">
+                            <span class="btn-text">3D Preview</span>
+                            <span class="btn-loading" style="display: none;">Loading...</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Design Preview -->
+                <div class="design-preview">
+                    <h3>Your Carpet Design</h3>
+                    <div class="carpet-preview">
+                        <div id="carpetVisualization" class="carpet-visualization">
+                            <!-- Carpet preview will be generated here -->
+                        </div>
+                        <div class="design-specs">
+                            <h4>Specifications</h4>
+                            <ul>
+                                <li><strong>Size:</strong> <span id="specSize">12' × 15'</span></li>
+                                <li><strong>Style:</strong> <span id="specStyle">Traditional</span></li>
+                                <li><strong>Color:</strong> <span id="specColor">Saddle Brown</span></li>
+                                <li><strong>Material:</strong> <span id="specMaterial">Premium Wool</span></li>
+                                <li><strong>Total Cost:</strong> <span id="specCost">$5,400</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consent Error Messages Panel -->
+    <div id="consentErrorPanel" class="consent-error-panel" style="display: none;">
+        <div class="error-content">
+            <h3>Consent Required</h3>
+            <p id="consentErrorMessage">This feature requires specific consent permissions.</p>
+            <button onclick="closeConsentError()" class="btn btn-primary">Got it</button>
+        </div>
+    </div>
+
+    <!-- Recommendations Panel -->
+    <div id="recommendationsPanel" class="recommendations-panel" style="display: none;">
+        <div class="panel-content">
+            <h3>Personalized Recommendations</h3>
+            <div id="recommendationsContent">
+                <!-- Recommendations will be populated here -->
+            </div>
+            <button onclick="closeRecommendations()" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- 3D Visualization Panel -->
+    <div id="visualizationPanel" class="visualization-panel" style="display: none;">
+        <div class="panel-content">
+            <h3>3D Room Visualization</h3>
+            <div class="3d-container">
+                <div id="3dRoom" class="3d-room">
+                    <!-- 3D visualization will be generated here -->
+                </div>
+                <div class="3d-controls">
+                    <button onclick="rotateView('left')" class="btn btn-small">← Rotate Left</button>
+                    <button onclick="rotateView('right')" class="btn btn-small">Rotate Right →</button>
+                    <button onclick="zoomView('in')" class="btn btn-small">Zoom In</button>
+                    <button onclick="zoomView('out')" class="btn btn-small">Zoom Out</button>
+                </div>
+            </div>
+            <button onclick="closeVisualization()" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- Success Messages Panel -->
+    <div id="successPanel" class="success-panel" style="display: none;">
+        <div class="success-content">
+            <h3>Success!</h3>
+            <p id="successMessage">Action completed successfully.</p>
+            <button onclick="closeSuccess()" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="custom-cta">
+        <div class="container">
+            <h2>Ready to Create Your Dream Carpet?</h2>
+            <p>Our family of craftsmen is ready to bring your design to life with premium materials and expert craftsmanship.</p>
+            <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premium Carpets Co</h3>
+                    <p>Family-owned since 1987, crafting premium handwoven carpets with love and dedication.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 (555) 012-3456</p>
+                    <p>📧 info@premiumcarpets.com</p>
+                    <p>📍 123 Carpet Lane, Design District</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="products.html">Custom Carpets</a></li>
+                        <li><a href="custom.html">Design Studio</a></li>
+                        <li><a href="contact.html">Consultation</a></li>
+                        <li><a href="about.html">Installation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premium Carpets Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>
