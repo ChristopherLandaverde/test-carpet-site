@@ -1,4 +1,4 @@
-// Contact Form JavaScript
+// Contact Form JavaScript - Enhanced AJAX Simulation
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
@@ -18,7 +18,7 @@ function initializeContactForm() {
         e.preventDefault();
         
         if (validateForm()) {
-            handleFormSubmission();
+            simulateAjaxSubmission();
         }
     });
     
@@ -100,28 +100,337 @@ function initializeContactForm() {
         return emailRegex.test(email);
     }
     
-    function handleFormSubmission() {
+    function simulateAjaxSubmission() {
         const formData = new FormData(form);
         const formObject = Object.fromEntries(formData);
         
         // Show loading state
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline';
-        submitBtn.disabled = true;
+        showLoadingState();
         
         // Track form submission
         trackFormSubmission(formObject);
         
-        // Simulate form submission (replace with actual endpoint)
+        // Simulate AJAX request with realistic timing and states
+        simulateAjaxRequest(formObject);
+    }
+    
+    function showLoadingState() {
+        // Disable form
+        const form = document.getElementById('contactForm');
+        const inputs = form.querySelectorAll('input, select, textarea, button');
+        inputs.forEach(input => input.disabled = true);
+        
+        // Update submit button
+        const submitBtn = form.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        submitBtn.style.background = '#6c757d';
+        submitBtn.style.cursor = 'not-allowed';
+        
+        // Add loading overlay
+        addLoadingOverlay();
+    }
+    
+    function addLoadingOverlay() {
+        const form = document.getElementById('contactForm');
+        
+        // Remove existing overlay
+        const existingOverlay = document.getElementById('formLoadingOverlay');
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+        
+        // Create loading overlay
+        const overlay = document.createElement('div');
+        overlay.id = 'formLoadingOverlay';
+        overlay.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            border-radius: 8px;
+        `;
+        
+        overlay.innerHTML = `
+            <div class="spinner" style="
+                width: 40px;
+                height: 40px;
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #3498db;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin-bottom: 1rem;
+            "></div>
+            <p style="margin: 0; color: #666; font-size: 0.9rem;">Sending your message...</p>
+        `;
+        
+        // Add spinner animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        form.style.position = 'relative';
+        form.appendChild(overlay);
+    }
+    
+    function simulateAjaxRequest(formData) {
+        // Simulate network delay and processing
+        const processingSteps = [
+            { delay: 800, message: 'Validating form data...' },
+            { delay: 1200, message: 'Connecting to server...' },
+            { delay: 1500, message: 'Sending message...' },
+            { delay: 1000, message: 'Processing response...' }
+        ];
+        
+        let currentStep = 0;
+        
+        function updateLoadingMessage() {
+            const overlay = document.getElementById('formLoadingOverlay');
+            if (overlay && processingSteps[currentStep]) {
+                const messageEl = overlay.querySelector('p');
+                messageEl.textContent = processingSteps[currentStep].message;
+            }
+        }
+        
+        function processNextStep() {
+            if (currentStep < processingSteps.length) {
+                updateLoadingMessage();
+                currentStep++;
+                setTimeout(processNextStep, processingSteps[currentStep - 1].delay);
+            } else {
+                // Simulate success (90% chance) or error (10% chance)
+                const isSuccess = Math.random() > 0.1;
+                
+                if (isSuccess) {
+                    handleSuccess();
+                } else {
+                    handleError();
+                }
+            }
+        }
+        
+        // Start processing
+        setTimeout(processNextStep, 500);
+    }
+    
+    function handleSuccess() {
+        // Remove loading overlay
+        const overlay = document.getElementById('formLoadingOverlay');
+        if (overlay) {
+            overlay.remove();
+        }
+        
+        // Show success message
+        showSuccessMessage();
+        
+        // Reset form
+        resetForm();
+        
+        // Re-enable form
+        enableForm();
+    }
+    
+    function handleError() {
+        // Remove loading overlay
+        const overlay = document.getElementById('formLoadingOverlay');
+        if (overlay) {
+            overlay.remove();
+        }
+        
+        // Show error message
+        showErrorMessage();
+        
+        // Re-enable form
+        enableForm();
+    }
+    
+    function enableForm() {
+        const form = document.getElementById('contactForm');
+        const inputs = form.querySelectorAll('input, select, textarea, button');
+        inputs.forEach(input => input.disabled = false);
+        
+        // Reset submit button
+        const submitBtn = form.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.style.background = '';
+        submitBtn.style.cursor = '';
+    }
+    
+    function showSuccessMessage() {
+        // Remove existing messages
+        removeExistingMessages();
+        
+        // Create success message
+        const successDiv = document.createElement('div');
+        successDiv.className = 'form-success';
+        successDiv.innerHTML = `
+            <div style="
+                background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+                color: #155724;
+                padding: 1.5rem;
+                border-radius: 12px;
+                margin-top: 1.5rem;
+                border: 2px solid #c3e6cb;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                animation: slideIn 0.5s ease-out;
+            ">
+                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                    <div style="
+                        width: 24px;
+                        height: 24px;
+                        background: #28a745;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 0.75rem;
+                    ">
+                        <span style="color: white; font-size: 14px;">✓</span>
+                    </div>
+                    <h4 style="margin: 0; color: #155724; font-size: 1.1rem;">Message Sent Successfully!</h4>
+                </div>
+                <p style="margin: 0; color: #155724; line-height: 1.5;">
+                    Thank you for contacting Premium Carpets Co! We've received your consultation request and will contact you within 24 hours to schedule your appointment with our family.
+                </p>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #c3e6cb;">
+                    <small style="color: #155724; opacity: 0.8;">
+                        📧 You'll receive a confirmation email shortly<br>
+                        📞 Our team will call you within 24 hours<br>
+                        🏠 We're excited to help with your carpet project!
+                    </small>
+                </div>
+            </div>
+        `;
+        
+        form.parentNode.insertBefore(successDiv, form.nextSibling);
+        
+        // Scroll to success message
+        successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Add slide-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Remove success message after 8 seconds
         setTimeout(() => {
-            showSuccessMessage();
-            resetForm();
-            
-            // Hide loading state
-            btnText.style.display = 'inline';
-            btnLoading.style.display = 'none';
-            submitBtn.disabled = false;
-        }, 2000);
+            if (successDiv.parentNode) {
+                successDiv.style.animation = 'slideOut 0.5s ease-in';
+                setTimeout(() => successDiv.remove(), 500);
+            }
+        }, 8000);
+    }
+    
+    function showErrorMessage() {
+        // Remove existing messages
+        removeExistingMessages();
+        
+        // Create error message
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'form-error';
+        errorDiv.innerHTML = `
+            <div style="
+                background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+                color: #721c24;
+                padding: 1.5rem;
+                border-radius: 12px;
+                margin-top: 1.5rem;
+                border: 2px solid #f5c6cb;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                animation: slideIn 0.5s ease-out;
+            ">
+                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                    <div style="
+                        width: 24px;
+                        height: 24px;
+                        background: #dc3545;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 0.75rem;
+                    ">
+                        <span style="color: white; font-size: 14px;">!</span>
+                    </div>
+                    <h4 style="margin: 0; color: #721c24; font-size: 1.1rem;">Message Could Not Be Sent</h4>
+                </div>
+                <p style="margin: 0; color: #721c24; line-height: 1.5;">
+                    We're experiencing technical difficulties. Please try again in a few moments, or contact us directly at <strong>555-0123</strong>.
+                </p>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f5c6cb;">
+                    <button onclick="retrySubmission()" style="
+                        background: #dc3545;
+                        color: white;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-size: 0.9rem;
+                    ">Try Again</button>
+                </div>
+            </div>
+        `;
+        
+        form.parentNode.insertBefore(errorDiv, form.nextSibling);
+        
+        // Scroll to error message
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Remove error message after 10 seconds
+        setTimeout(() => {
+            if (errorDiv.parentNode) {
+                errorDiv.style.animation = 'slideOut 0.5s ease-in';
+                setTimeout(() => errorDiv.remove(), 500);
+            }
+        }, 10000);
+    }
+    
+    function removeExistingMessages() {
+        const existingMessages = document.querySelectorAll('.form-success, .form-error');
+        existingMessages.forEach(msg => msg.remove());
+    }
+    
+    function resetForm() {
+        form.reset();
+        
+        // Clear any remaining error states
+        const errorDivs = form.querySelectorAll('.field-error');
+        errorDivs.forEach(div => div.remove());
+        
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.style.borderColor = '';
+        });
     }
     
     function trackFormSubmission(formData) {
@@ -158,40 +467,13 @@ function initializeContactForm() {
         };
         return budgetValues[budget] || 0;
     }
-    
-    function showSuccessMessage() {
-        // Create success message
-        const successDiv = document.createElement('div');
-        successDiv.className = 'form-success';
-        successDiv.innerHTML = `
-            <div style="background: #d4edda; color: #155724; padding: 1rem; border-radius: 8px; margin-top: 1rem; border: 1px solid #c3e6cb;">
-                <h4 style="margin: 0 0 0.5rem 0; color: #155724;">Thank you for your message!</h4>
-                <p style="margin: 0; color: #155724;">We've received your consultation request and will contact you within 24 hours to schedule your appointment with our family.</p>
-            </div>
-        `;
-        
-        form.parentNode.insertBefore(successDiv, form.nextSibling);
-        
-        // Scroll to success message
-        successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Remove success message after 5 seconds
-        setTimeout(() => {
-            successDiv.remove();
-        }, 5000);
-    }
-    
-    function resetForm() {
-        form.reset();
-        
-        // Clear any remaining error states
-        const errorDivs = form.querySelectorAll('.field-error');
-        errorDivs.forEach(div => div.remove());
-        
-        const inputs = form.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.style.borderColor = '';
-        });
+}
+
+// Retry submission function (global for error message button)
+function retrySubmission() {
+    const form = document.getElementById('contactForm');
+    if (form && validateForm()) {
+        simulateAjaxSubmission();
     }
 }
 
@@ -247,7 +529,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Export functions for debugging
 window.ContactForm = {
     trackFormInteraction,
-    trackShowroomInterest
+    trackShowroomInterest,
+    retrySubmission
 };
 
-console.log('Contact form JavaScript loaded'); 
+console.log('Enhanced contact form JavaScript loaded with AJAX simulation'); 
