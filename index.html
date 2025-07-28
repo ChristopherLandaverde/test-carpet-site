@@ -25,57 +25,112 @@
     })(window,document,'script','dataLayer','GTM-M5V9KW2F');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Google Consent Mode -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        
-        // Default consent state
-        gtag("consent", "default", {
-            ad_storage: "denied",
-            analytics_storage: "denied",
-            functionality_storage: "denied",
-            personalization_storage: "denied",
-            security_storage: "granted",
-            wait_for_update: 500,
-        });
-        
-        // Update consent when Cookiebot changes
-        window.addEventListener('CookiebotOnConsentReady', function (e) {
-            if (Cookiebot.consent.statistics) {
-                gtag("consent", "update", {
-                    analytics_storage: "granted"
-                });
-            }
-            if (Cookiebot.consent.marketing) {
-                gtag("consent", "update", {
-                    ad_storage: "granted"
-                });
-            }
-            if (Cookiebot.consent.preferences) {
-                gtag("consent", "update", {
-                    personalization_storage: "granted"
-                });
-            }
-            if (Cookiebot.consent.necessary) {
-                gtag("consent", "update", {
-                    functionality_storage: "granted"
-                });
-            }
-        });
-    </script>
-
-    <!-- Google Analytics -->
+    <!-- Analytics Tags -->
+    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
-            send_page_view: false
-        });
+        gtag('config', 'GA_MEASUREMENT_ID');
     </script>
 
+    <!-- Universal Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-12345678-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- Adobe Analytics -->
+    <script src="https://assets.adobedtm.com/launch-EN1234567890abcdef/development/launch.js" async></script>
+
+    <!-- Mixpanel -->
+    <script type="text/javascript">
+        (function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking has_opted_in_tracking opt_out_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+        for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0));for(var c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+        MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+        mixpanel.init("YOUR_MIXPANEL_TOKEN");
+    </script>
+
+    <!-- Amplitude -->
+    <script type="text/javascript">
+        (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+        ;r.type="text/javascript"
+        ;r.integrity="sha384-tzcaaCH5+KXD4sGaDozev6oElQhsVfbJvdi7/8bLbwXYTpLc4zAWHXZzVwqJp7f"
+        ;r.crossOrigin="anonymous";r.async=true
+        ;r.src="https://cdn.amplitude.com/libs/amplitude-8.21.0-min.gz.js"
+        ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
+        console.log("[Amplitude] Error: could not load SDK")}}
+        ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+        ;function s(e,t){e.prototype[t]=function(){
+        this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+        var o=function(){this._q=[];return this}
+        ;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
+        ;for(var c=0;c<a.length;c++){s(o,a[c])}n.Identify=o;var u=function(){this._q=[]
+        ;return this}
+        ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+        ;for(var p=0;p<l.length;p++){s(u,l[p])}n.Revenue=u
+        ;var d=["init","logEvent","logEventWithTimestamp","logEventWithGroups","setGroup","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenue","setSessionId","resetSessionId","getSessionId","setMinTimeBetweenSessionsMillis","setEventUploadThreshold","setUseDynamicConfig","setServerUrl","sendEvents","setLibrary","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId","getSessionId","identify","setGroup","setUserProperties","clearUserProperties","setOptOut","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","setGroup","setSessionId","resetSessionId","getSessionId","setMinTimeBetweenSessionsMillis","setEventUploadThreshold","setUseDynamicConfig","setServerUrl","sendEvents","setLibrary","logRevenueV2","regenerateDeviceId","groupIdentify","onInit"]
+        ;function v(e){function t(t){e[t]=function(){
+        e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+        for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+        e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+        ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
+        }return n._iq[e]};e.amplitude=n})(window,document);
+        amplitude.getInstance().init("YOUR_AMPLITUDE_API_KEY");
+    </script>
+
+    <!-- Segment -->
+    <script>
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.15.3";
+        analytics.load("YOUR_SEGMENT_WRITE_KEY");
+        analytics.page();
+        }}();
+    </script>
+
+    <!-- Hotjar -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1234567,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- FullStory -->
+    <script>
+        window['_fs_debug'] = false;
+        window['_fs_host'] = 'fullstory.com';
+        window['_fs_org'] = 'YOUR_FULLSTORY_ORG_ID';
+        window['_fs_namespace'] = 'FS';
+        (function(m,n,e,t,l,o,g,y){
+            if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
+            g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
+            o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_host+'/s/fs.js';
+            y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+            g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
+            g.anonymize=function(){g.identify(!!0)};
+            g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
+            g.log = function(a,b){g("log",[a,b])};
+            g.consent=function(a){g("consent",!arguments.length||a)};
+            g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+            g.clearUserCookie=function(){};
+            g.setVars=function(n, p){g('setVars',[n,p]);};
+            g._w={};y='XMLHttpRequest';g._w[y]=m[y];y='fetch';g._w[y]=m[y];
+            if(m[y])g._w[y]=m[y].prototype;
+            m[y]=function(){return g._w[y].apply(this,arguments)};
+            g._v="1.3.0";
+        })(window,document,window['_fs_namespace'],'script','user');
+    </script>
+
+    <!-- Advertising/Marketing Tags -->
     <!-- Facebook Pixel -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -88,6 +143,132 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '123456789012345');
         fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-123456789');
+    </script>
+
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">
+        _linkedin_partner_id = "123456";
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script type="text/javascript">
+        (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);})(window.lintrk);
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=123456&fmt=gif" />
+    </noscript>
+
+    <!-- Twitter Pixel -->
+    <script>
+        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+        twq('config','o1234567890123456789');
+    </script>
+
+    <!-- TikTok Pixel -->
+    <script>
+        !function (w, d, t) {
+        w[t] = w[t] || [];
+        w[t].push({
+        'ttq.load':'YOUR_TIKTOK_PIXEL_ID'
+        });
+        var s = d.createElement('script');
+        s.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=YOUR_TIKTOK_PIXEL_ID';
+        s.async = true;
+        d.head.appendChild(s);
+        }(window, document, 'ttq');
+    </script>
+
+    <!-- Pinterest Tag -->
+    <script>
+        !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(
+        Array.prototype.slice.call(arguments))};var
+        n=window.pintrk;n.queue=[],n.version="3.0";var
+        t=document.createElement("script");t.async=!0,t.src=e;var
+        r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+        pintrk('load', 'YOUR_PINTEREST_TAG_ID');
+        pintrk('page');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none;" alt="" src="https://ct.pinterest.com/v3/?event=init&tid=YOUR_PINTEREST_TAG_ID&pd[em]=<hashed_email_address>&noscript=1" />
+    </noscript>
+
+    <!-- Microsoft Ads (Bing) -->
+    <script>
+        (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"YOUR_BING_TAG_ID"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+    </script>
+    <noscript>
+        <img src="//bat.bing.com/action/0?ti=YOUR_BING_TAG_ID&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" />
+    </noscript>
+
+    <!-- Functionality/Personalization Tags -->
+    <!-- Optimizely -->
+    <script src="https://cdn.optimizely.com/js/YOUR_OPTIMIZELY_PROJECT_ID.js"></script>
+
+    <!-- VWO (Visual Website Optimizer) -->
+    <script type='text/javascript' id='vwoCode'>
+        window.settings_timer = setTimeout(function () {
+            _vwo_code=window._vwo_code || (window._vwo_code=[]);
+            window._vwo_code.push(['init',{
+                'exptId': 'YOUR_VWO_EXPERIMENT_ID',
+                'version': 1
+            }]);
+            var s = document.createElement('script');
+            s.type='text/javascript';
+            s.async = true;
+            s.src = 'https://dev.visualwebsiteoptimizer.com/j.php?a='+_vwo_expt_id+'&u='+encodeURIComponent(window.location.href)+'&f='+ +new Date;
+            var ss = document.getElementsByTagName('script')[0];
+            ss.parentNode.insertBefore(s, ss);
+        }, 1000);
+    </script>
+
+    <!-- Crazy Egg -->
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/12345678/1234567890.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+
+    <!-- Mouseflow -->
+    <script type="text/javascript">
+        window._mfq = window._mfq || [];
+        (function() {
+            var mf = document.createElement("script");
+            mf.type = "text/javascript"; mf.async = true;
+            mf.src = "//cdn.mouseflow.com/projects/YOUR_MOUSEFLOW_PROJECT_ID.js";
+            document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+    </script>
+
+    <!-- Lucky Orange -->
+    <script type='text/javascript'>
+        window.__lo_site_id = 123456;
+        (function() {
+            var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+            wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+        })();
     </script>
 
     <link rel="stylesheet" href="assets/css/styles.css">
