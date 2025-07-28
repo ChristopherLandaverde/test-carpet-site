@@ -26,6 +26,64 @@
     })(window,document,'script','dataLayer','GTM-TEST123');</script>
     <!-- End Google Tag Manager -->
 
+    <!-- Custom HTML Tracking Tags -->
+    <!-- Page View Tracking Tag -->
+    <script>
+        (function() {
+            if (typeof Cookiebot !== 'undefined' && Cookiebot.consent.statistics) {
+                console.log('🏷️ Custom HTML Tag: Page View Tracking');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_page_view',
+                    'custom_parameter_page_type': 'products',
+                    'custom_parameter_user_type': 'returning_visitor'
+                });
+            }
+        })();
+    </script>
+
+    <!-- Product View Tracking Tag -->
+    <script>
+        (function() {
+            if (typeof Cookiebot !== 'undefined' && Cookiebot.consent.statistics) {
+                console.log('🏷️ Custom HTML Tag: Product View Tracking');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_product_view',
+                    'custom_parameter_product_category': 'carpets'
+                });
+            }
+        })();
+    </script>
+
+    <!-- E-commerce Tracking Tag -->
+    <script>
+        (function() {
+            if (typeof Cookiebot !== 'undefined' && Cookiebot.consent.statistics) {
+                console.log('🏷️ Custom HTML Tag: E-commerce Tracking');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_ecommerce',
+                    'custom_parameter_ecommerce_type': 'product_view'
+                });
+            }
+        })();
+    </script>
+
+    <!-- Lead Generation Tracking Tag -->
+    <script>
+        (function() {
+            if (typeof Cookiebot !== 'undefined' && Cookiebot.consent.marketing) {
+                console.log('🏷️ Custom HTML Tag: Lead Generation Tracking');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'custom_lead_generation',
+                    'custom_parameter_lead_type': 'quote_request'
+                });
+            }
+        })();
+    </script>
+
     <!-- Google Consent Mode -->
     <script>
         window.dataLayer = window.dataLayer || [];
