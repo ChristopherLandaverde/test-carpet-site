@@ -2037,6 +2037,10 @@ html {
     border-radius: 12px;
     transition: var(--transition);
     background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
 }
 
 .design-controls .material-card:hover {
@@ -2055,18 +2059,26 @@ html {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .design-controls .material-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
 .design-controls .material-card .price {
     color: var(--accent-color);
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0.5rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 6px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    margin-top: auto;
 }
 
 /* Action Buttons */
