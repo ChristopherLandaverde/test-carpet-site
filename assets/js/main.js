@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize comprehensive event tracking
     initializeEventTracking();
     
+    // Initialize custom HTML tracking tags
+    initializeCustomHTMLTags();
+    
     // Initialize UI interactions
     initializeUI();
     
@@ -17,6 +20,137 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll animations
     initializeScrollAnimations();
 });
+
+// Custom HTML Tags Simulation
+function initializeCustomHTMLTags() {
+    console.log('🏷️ Initializing custom HTML tracking tags...');
+    
+    // Create custom tracking functions that simulate separate GTM tags
+    window.CustomTracking = {
+        // Page View Tag
+        trackPageView: function(pageData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Page View', pageData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'page_view', pageData);
+                }
+            }
+        },
+        
+        // Button Click Tag
+        trackButtonClick: function(buttonData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Button Click', buttonData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'button_click', buttonData);
+                }
+            }
+        },
+        
+        // Form Submit Tag
+        trackFormSubmit: function(formData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Form Submit', formData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submit', formData);
+                }
+            }
+        },
+        
+        // Product View Tag
+        trackProductView: function(productData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Product View', productData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'view_item', productData);
+                }
+            }
+        },
+        
+        // Add to Cart Tag
+        trackAddToCart: function(cartData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Add to Cart', cartData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'add_to_cart', cartData);
+                }
+            }
+        },
+        
+        // Lead Generation Tag
+        trackLead: function(leadData) {
+            if (hasConsent('marketing')) {
+                console.log('🏷️ Custom HTML Tag: Lead Generation', leadData);
+                // Simulate sending to Facebook Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', leadData);
+                }
+            }
+        },
+        
+        // Contact Intent Tag
+        trackContactIntent: function(contactData) {
+            if (hasConsent('marketing')) {
+                console.log('🏷️ Custom HTML Tag: Contact Intent', contactData);
+                // Simulate sending to Facebook Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Contact', contactData);
+                }
+            }
+        },
+        
+        // Design Studio Tag
+        trackDesignInteraction: function(designData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Design Interaction', designData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'design_interaction', designData);
+                }
+            }
+        },
+        
+        // Navigation Tag
+        trackNavigation: function(navData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Navigation', navData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'navigation_click', navData);
+                }
+            }
+        },
+        
+        // Scroll Depth Tag
+        trackScrollDepth: function(scrollData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: Scroll Depth', scrollData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth', scrollData);
+                }
+            }
+        },
+        
+        // User Engagement Tag
+        trackUserEngagement: function(engagementData) {
+            if (hasConsent('statistics')) {
+                console.log('🏷️ Custom HTML Tag: User Engagement', engagementData);
+                // Simulate sending to GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'user_engagement', engagementData);
+                }
+            }
+        }
+    };
+    
+    console.log('✅ Custom HTML tracking tags initialized');
+}
 
 // Simple Consent Tracking
 function initializeConsentTracking() {
@@ -178,14 +312,16 @@ function initializeEventTracking() {
 }
 
 function trackPageView() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'page_view', {
+    if (typeof window.CustomTracking !== 'undefined') {
+        const pageData = {
             'page_title': document.title,
             'page_location': window.location.href,
             'custom_parameter_page_type': getPageType(),
             'custom_parameter_user_type': getUserType(),
             'custom_parameter_session_id': getSessionId()
-        });
+        };
+        
+        window.CustomTracking.trackPageView(pageData);
         
         // Track with Facebook Pixel
         if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
@@ -214,13 +350,15 @@ function trackScrollDepth() {
                 if (maxScroll >= threshold && !trackedThresholds.has(threshold)) {
                     trackedThresholds.add(threshold);
                     
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'scroll_depth', {
+                    if (typeof window.CustomTracking !== 'undefined') {
+                        const scrollData = {
                             'event_category': 'engagement',
                             'event_label': `${threshold}%`,
                             'custom_parameter_scroll_depth': threshold,
                             'custom_parameter_page': getPageType()
-                        });
+                        };
+                        
+                        window.CustomTracking.trackScrollDepth(scrollData);
                     }
                     
                     console.log(`📊 Scroll depth tracked: ${threshold}%`);
@@ -236,13 +374,15 @@ function trackTimeOnPage() {
     window.addEventListener('beforeunload', function() {
         const timeOnPage = Math.round((Date.now() - startTime) / 1000);
         
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'time_on_page', {
+        if (typeof window.CustomTracking !== 'undefined') {
+            const timeData = {
                 'event_category': 'engagement',
                 'event_label': `${timeOnPage}s`,
                 'custom_parameter_time_seconds': timeOnPage,
                 'custom_parameter_page': getPageType()
-            });
+            };
+            
+            window.CustomTracking.trackUserEngagement(timeData);
         }
         
         console.log(`⏱️ Time on page tracked: ${timeOnPage}s`);
@@ -258,12 +398,14 @@ function trackUserEngagement() {
         mouseMoveCount++;
         
         if (mouseMoveCount % mouseMoveThreshold === 0) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'user_engagement', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const engagementData = {
                     'event_category': 'engagement',
                     'event_label': 'mouse_movement',
                     'custom_parameter_mouse_moves': mouseMoveCount
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(engagementData);
             }
         }
     });
@@ -271,12 +413,14 @@ function trackUserEngagement() {
     // Track clicks on non-interactive elements
     document.addEventListener('click', function(e) {
         if (!e.target.closest('a, button, input, select, textarea')) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'user_engagement', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const engagementData = {
                     'event_category': 'engagement',
                     'event_label': 'content_click',
                     'custom_parameter_clicked_element': e.target.tagName
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(engagementData);
             }
         }
     });
@@ -290,8 +434,8 @@ function trackFormInteractions() {
             const field = e.target.dataset.field;
             const fieldType = e.target.dataset.fieldType;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_interaction', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const formData = {
                     'event_category': 'forms',
                     'event_label': 'field_focus',
                     'custom_parameter_field_name': e.target.name || e.target.id,
@@ -299,7 +443,9 @@ function trackFormInteractions() {
                     'custom_parameter_tracking': tracking,
                     'custom_parameter_field': field,
                     'custom_parameter_field_type_detail': fieldType
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(formData);
             }
         }
     });
@@ -309,15 +455,17 @@ function trackFormInteractions() {
         const formTracking = e.target.dataset.tracking;
         const formType = e.target.dataset.formType;
         
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'form_submit', {
+        if (typeof window.CustomTracking !== 'undefined') {
+            const formData = {
                 'event_category': 'forms',
                 'event_label': 'form_submitted',
                 'custom_parameter_form_id': e.target.id,
                 'custom_parameter_form_action': e.target.action,
                 'custom_parameter_form_tracking': formTracking,
                 'custom_parameter_form_type': formType
-            });
+            };
+            
+            window.CustomTracking.trackFormSubmit(formData);
         }
         
         // Track with Facebook Pixel
@@ -338,8 +486,8 @@ function trackFormInteractions() {
             const fieldType = e.target.dataset.fieldType;
             const option = e.target.dataset.option;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_interaction', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const formData = {
                     'event_category': 'forms',
                     'event_label': 'option_selected',
                     'custom_parameter_field_name': e.target.name || e.target.id,
@@ -349,7 +497,9 @@ function trackFormInteractions() {
                     'custom_parameter_field': field,
                     'custom_parameter_field_type_detail': fieldType,
                     'custom_parameter_option': option
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(formData);
             }
         }
     });
@@ -363,8 +513,8 @@ function trackNavigationInteractions() {
             const page = e.target.dataset.page;
             const category = e.target.dataset.category;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'navigation_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const navData = {
                     'event_category': 'navigation',
                     'event_label': e.target.textContent.trim(),
                     'custom_parameter_destination': e.target.href,
@@ -372,7 +522,9 @@ function trackNavigationInteractions() {
                     'custom_parameter_tracking': tracking,
                     'custom_parameter_page': page,
                     'custom_parameter_category': category
-                });
+                };
+                
+                window.CustomTracking.trackNavigation(navData);
             }
         }
     });
@@ -380,13 +532,15 @@ function trackNavigationInteractions() {
     // Track breadcrumb clicks
     document.addEventListener('click', function(e) {
         if (e.target.matches('.breadcrumb a')) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'navigation_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const navData = {
                     'event_category': 'navigation',
                     'event_label': 'breadcrumb',
                     'custom_parameter_destination': e.target.href,
                     'custom_parameter_navigation_type': 'breadcrumb'
-                });
+                };
+                
+                window.CustomTracking.trackNavigation(navData);
             }
         }
     });
@@ -396,14 +550,16 @@ function trackNavigationInteractions() {
         if (e.target.matches('[data-tracking="nav_brand"]')) {
             const page = e.target.dataset.page;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'navigation_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const navData = {
                     'event_category': 'navigation',
                     'event_label': 'brand_logo',
                     'custom_parameter_destination': e.target.href,
                     'custom_parameter_navigation_type': 'brand',
                     'custom_parameter_page': page
-                });
+                };
+                
+                window.CustomTracking.trackNavigation(navData);
             }
         }
     });
@@ -414,14 +570,16 @@ function trackNavigationInteractions() {
             const contactType = e.target.dataset.contactType;
             const phone = e.target.dataset.phone;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'contact_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const contactData = {
                     'event_category': 'contact',
                     'event_label': 'phone_contact',
                     'custom_parameter_contact_type': contactType,
                     'custom_parameter_phone': phone,
                     'custom_parameter_location': 'navigation'
-                });
+                };
+                
+                window.CustomTracking.trackContactIntent(contactData);
             }
         }
     });
@@ -437,8 +595,8 @@ function trackButtonInteractions() {
             const destination = e.target.dataset.destination;
             const ctaType = e.target.dataset.ctaType;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'button_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const buttonData = {
                     'event_category': 'engagement',
                     'event_label': buttonText,
                     'custom_parameter_button_type': buttonClass.includes('btn-primary') ? 'primary' : 'secondary',
@@ -447,7 +605,9 @@ function trackButtonInteractions() {
                     'custom_parameter_action': action,
                     'custom_parameter_destination': destination,
                     'custom_parameter_cta_type': ctaType
-                });
+                };
+                
+                window.CustomTracking.trackButtonClick(buttonData);
             }
             
             // Track specific button types
@@ -469,8 +629,8 @@ function trackLinkInteractions() {
             const contactType = e.target.dataset.contactType;
             const phone = e.target.dataset.phone;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'link_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const linkData = {
                     'event_category': 'engagement',
                     'event_label': e.target.textContent.trim(),
                     'custom_parameter_link_url': e.target.href,
@@ -479,7 +639,9 @@ function trackLinkInteractions() {
                     'custom_parameter_tracking': tracking,
                     'custom_parameter_contact_type': contactType,
                     'custom_parameter_phone': phone
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(linkData);
             }
         }
     });
@@ -491,12 +653,14 @@ function trackSearchInteractions() {
         if (e.target.matches('form[action*="search"], .search-form')) {
             const searchInput = e.target.querySelector('input[type="search"], input[name*="search"], input[name*="q"]');
             if (searchInput) {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'search', {
+                if (typeof window.CustomTracking !== 'undefined') {
+                    const searchData = {
                         'event_category': 'engagement',
                         'event_label': 'search_submitted',
                         'search_term': searchInput.value
-                    });
+                    };
+                    
+                    window.CustomTracking.trackUserEngagement(searchData);
                 }
             }
         }
@@ -507,12 +671,14 @@ function trackVideoInteractions() {
     // Track video interactions (for future video content)
     document.addEventListener('click', function(e) {
         if (e.target.matches('video, .video-player, .play-button')) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'video_interaction', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const videoData = {
                     'event_category': 'engagement',
                     'event_label': 'video_play',
                     'custom_parameter_video_title': e.target.title || 'Unknown Video'
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(videoData);
             }
         }
     });
@@ -522,12 +688,14 @@ function trackSocialInteractions() {
     // Track social media sharing
     document.addEventListener('click', function(e) {
         if (e.target.matches('.social-share, .share-button, [data-share]')) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'social_share', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const socialData = {
                     'event_category': 'social',
                     'event_label': 'content_shared',
                     'custom_parameter_share_platform': e.target.dataset.platform || 'unknown'
-                });
+                };
+                
+                window.CustomTracking.trackUserEngagement(socialData);
             }
             
             // Track with Facebook Pixel
@@ -555,8 +723,8 @@ function trackEcommerceEvents() {
             const material = productCard.dataset.material;
             const origin = productCard.dataset.origin;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'view_item', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const productData = {
                     'event_category': 'ecommerce',
                     'event_label': 'product_viewed',
                     'custom_parameter_product_name': productName,
@@ -568,7 +736,9 @@ function trackEcommerceEvents() {
                     'custom_parameter_price': price,
                     'custom_parameter_material': material,
                     'custom_parameter_origin': origin
-                });
+                };
+                
+                window.CustomTracking.trackProductView(productData);
             }
         }
     });
@@ -579,14 +749,16 @@ function trackEcommerceEvents() {
             const product = e.target.dataset.product;
             const price = e.target.dataset.price;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'add_to_cart', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const cartData = {
                     'event_category': 'ecommerce',
                     'event_label': 'item_added_to_cart',
                     'custom_parameter_product_name': e.target.dataset.product || 'Unknown Product',
                     'custom_parameter_product': product,
                     'custom_parameter_price': price
-                });
+                };
+                
+                window.CustomTracking.trackAddToCart(cartData);
             }
             
             // Track with Facebook Pixel
@@ -607,14 +779,16 @@ function trackEcommerceEvents() {
             const product = e.target.dataset.product;
             const price = e.target.dataset.price;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'product_action', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const buttonData = {
                     'event_category': 'ecommerce',
                     'event_label': action,
                     'custom_parameter_action': action,
                     'custom_parameter_product': product,
                     'custom_parameter_price': price
-                });
+                };
+                
+                window.CustomTracking.trackButtonClick(buttonData);
             }
         }
     });
@@ -624,12 +798,14 @@ function trackEcommerceEvents() {
         if (e.target.matches('[data-tracking="product_badge"]')) {
             const badgeType = e.target.dataset.badgeType;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'product_badge_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const buttonData = {
                     'event_category': 'ecommerce',
                     'event_label': 'badge_clicked',
                     'custom_parameter_badge_type': badgeType
-                });
+                };
+                
+                window.CustomTracking.trackButtonClick(buttonData);
             }
         }
     });
@@ -666,14 +842,16 @@ function trackCustomEvents() {
             const dimension = e.target.dataset.dimension;
             const unit = e.target.dataset.unit;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'design_interaction', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const designData = {
                     'event_category': 'custom_design',
                     'event_label': 'room_dimension_changed',
                     'custom_parameter_dimension': dimension,
                     'custom_parameter_unit': unit,
                     'custom_parameter_value': e.target.value
-                });
+                };
+                
+                window.CustomTracking.trackDesignInteraction(designData);
             }
         }
     });
@@ -683,12 +861,14 @@ function trackCustomEvents() {
         if (e.target.matches('[data-tracking="action_button"]')) {
             const action = e.target.dataset.action;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'design_action', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const designData = {
                     'event_category': 'custom_design',
                     'event_label': action,
                     'custom_parameter_action': action
-                });
+                };
+                
+                window.CustomTracking.trackDesignInteraction(designData);
             }
         }
     });
@@ -705,12 +885,14 @@ function trackCustomEvents() {
         if (e.target.matches('[data-tracking="category_filter"]')) {
             const filter = e.target.dataset.filter;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'category_filter', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const navData = {
                     'event_category': 'navigation',
                     'event_label': 'filter_applied',
                     'custom_parameter_filter': filter
-                });
+                };
+                
+                window.CustomTracking.trackNavigation(navData);
             }
         }
     });
@@ -722,13 +904,15 @@ function trackCustomEvents() {
             const offeringType = offeringCard.dataset.offeringType;
             const category = offeringCard.dataset.category;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'offering_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const buttonData = {
                     'event_category': 'engagement',
                     'event_label': 'offering_viewed',
                     'custom_parameter_offering_type': offeringType,
                     'custom_parameter_category': category
-                });
+                };
+                
+                window.CustomTracking.trackButtonClick(buttonData);
             }
         }
     });
@@ -740,14 +924,16 @@ function trackCustomEvents() {
             const destination = e.target.dataset.destination;
             const ctaType = e.target.dataset.ctaType;
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'project_click', {
+            if (typeof window.CustomTracking !== 'undefined') {
+                const buttonData = {
                     'event_category': 'engagement',
                     'event_label': 'project_viewed',
                     'custom_parameter_project': project,
                     'custom_parameter_destination': destination,
                     'custom_parameter_cta_type': ctaType
-                });
+                };
+                
+                window.CustomTracking.trackButtonClick(buttonData);
             }
         }
     });
@@ -755,8 +941,8 @@ function trackCustomEvents() {
 
 // Helper Functions
 function trackDesignEvent(eventType, value, additionalParams = {}) {
-    if (typeof gtag !== 'undefined') {
-        const eventData = {
+    if (typeof window.CustomTracking !== 'undefined') {
+        const designData = {
             'event_category': 'custom_design',
             'event_label': eventType,
             'custom_parameter_design_value': value,
@@ -765,19 +951,21 @@ function trackDesignEvent(eventType, value, additionalParams = {}) {
         
         // Add additional parameters
         Object.keys(additionalParams).forEach(key => {
-            eventData[`custom_parameter_${key}`] = additionalParams[key];
+            designData[`custom_parameter_${key}`] = additionalParams[key];
         });
         
-        gtag('event', 'design_interaction', eventData);
+        window.CustomTracking.trackDesignInteraction(designData);
     }
 }
 
 function trackContactIntent() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'contact_intent', {
+    if (typeof window.CustomTracking !== 'undefined') {
+        const contactData = {
             'event_category': 'conversion',
             'event_label': 'contact_requested'
-        });
+        };
+        
+        window.CustomTracking.trackContactIntent(contactData);
     }
     
     if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
@@ -789,11 +977,13 @@ function trackContactIntent() {
 }
 
 function trackQuoteRequest() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'quote_request', {
+    if (typeof window.CustomTracking !== 'undefined') {
+        const leadData = {
             'event_category': 'conversion',
             'event_label': 'quote_requested'
-        });
+        };
+        
+        window.CustomTracking.trackLead(leadData);
     }
     
     if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
@@ -805,11 +995,13 @@ function trackQuoteRequest() {
 }
 
 function trackCustomDesignIntent() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'custom_design_intent', {
+    if (typeof window.CustomTracking !== 'undefined') {
+        const leadData = {
             'event_category': 'conversion',
             'event_label': 'custom_design_requested'
-        });
+        };
+        
+        window.CustomTracking.trackLead(leadData);
     }
     
     if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
@@ -821,11 +1013,13 @@ function trackCustomDesignIntent() {
 }
 
 function trackConsultationRequest() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'consultation_request', {
+    if (typeof window.CustomTracking !== 'undefined') {
+        const leadData = {
             'event_category': 'conversion',
             'event_label': 'consultation_requested'
-        });
+        };
+        
+        window.CustomTracking.trackLead(leadData);
     }
     
     if (typeof fbq !== 'undefined' && hasConsent('marketing')) {
