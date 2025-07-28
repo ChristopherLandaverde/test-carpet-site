@@ -2031,7 +2031,7 @@ html {
     display: none;
 }
 
-.material-card {
+.design-controls .material-card {
     padding: 1.5rem;
     border: 2px solid var(--border-color);
     border-radius: 12px;
@@ -2039,31 +2039,31 @@ html {
     background: var(--white);
 }
 
-.material-card:hover {
+.design-controls .material-card:hover {
     border-color: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
 
-.material-option input[type="radio"]:checked + .material-card {
+.design-controls .material-option input[type="radio"]:checked + .material-card {
     border-color: var(--accent-color);
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
     box-shadow: var(--shadow);
 }
 
-.material-card h4 {
+.design-controls .material-card h4 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
 
-.material-card p {
+.design-controls .material-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
-.material-card .price {
+.design-controls .material-card .price {
     color: var(--accent-color);
     font-weight: 600;
     font-size: 1rem;
